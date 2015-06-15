@@ -1,0 +1,12 @@
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Whizz Hard Books\Whizz Hard Books\bin\Whizz Hard Books.dll.config
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Whizz Hard Books\Whizz Hard Books\bin\Whizz Hard Books.dll
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Whizz Hard Books\Whizz Hard Books\bin\Whizz Hard Books.pdb
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Whizz Hard Books\Whizz Hard Books\obj\Debug\Whizz Hard Books.csprojResolveAssemblyReference.cache
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Whizz Hard Books\Whizz Hard Books\obj\Debug\Whizz Hard Books.dll
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Whizz Hard Books\Whizz Hard Books\obj\Debug\Whizz Hard Books.pdb
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1\Whizz Hard Books\bin\Whizz Hard Books.dll.config
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1\Whizz Hard Books\bin\Whizz Hard Books.dll
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1\Whizz Hard Books\bin\Whizz Hard Books.pdb
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1\Whizz Hard Books\obj\Debug\Whizz Hard Books.csprojResolveAssemblyReference.cache
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1\Whizz Hard Books\obj\Debug\Whizz Hard Books.dll
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1\Whizz Hard Books\obj\Debug\Whizz Hard Books.pdb
