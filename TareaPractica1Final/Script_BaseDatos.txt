@@ -1,0 +1,75 @@
+--Creando la base de Datos
+Create Database Biblioteca
+
+--Creando la tabla Cliente
+create table Cliente(
+carnet_cliente int identity (1,1)not null Primary Key,
+nombre_cliente varchar(50),
+DPI_cliente int,
+direccion_cliente varchar(50),
+telefono_cliente int,
+no_prestados_cliente int
+)
+select *from Cliente
+
+--Creando la tabla Autor
+create table Autor(
+cod_autor int identity (1,1) not null Primary Key,
+nombre_autor varchar(50),
+nacionalidad_autor varchar(50)
+)
+
+--Creando la tabla Libro
+create table Libro(
+cod_libro int identity (1,1) not null primary key,
+nombre_libro varchar(50),
+autor_libro varchar(50),
+tema_libro varchar(50),
+no_paginas int,
+no_existencias int,
+no_prestados int,
+no_prestamos int,
+cod_autor int,
+--Estableciendo las llaves foraneas.
+constraint fk_Libro_cod_autor foreign key (cod_autor) references Autor(cod_autor)
+)
+
+--Creando tabla Devolucion.
+create table Devolucion(
+cod_devolucion int identity (1,1) not null primary key,
+fecha_devolucion date,
+carnet_cliente int,
+cod_libro int,
+--creando las llaves foraneas.
+constraint fk_Devolucion_carnet_cliente foreign key (carnet_cliente) references Cliente(carnet_cliente),
+constraint fk_Devolucion_cod_libro foreign key (cod_libro) references Libro(cod_libro)
+)
+
+--creando tabla Reservar.
+create table Reservar(
+cod_reservacion int identity (1,1) not null primary key,
+fecha_reservacion date,
+carnet_cliente int,
+cod_libro int,
+--creando las llaves foraneas.
+constraint fk_Reservar_carnet_cliente foreign key (carnet_cliente) references Cliente(carnet_cliente),
+constraint fk_Reservar_cod_libro foreign key (cod_libro) references Libro(cod_libro)
+)
+
+--Creando tabla Prestamo
+create table Prestamo(
+cod_prestamo int identity (1,1) not null primary key,
+fecha_prestamo date,
+carnet_cliente int,
+cod_libro int,
+--creando las llaves foraneas.
+constraint fk_Prestamo_carnet_cliente foreign key (carnet_cliente) references Cliente(carnet_cliente),
+constraint fk_Prestamo_cod_libro foreign key (cod_libro) references Libro(cod_libro)
+)
+
+select *from Autor
+select *from Libro
+select *from Cliente
+select *from Reservar
+select *from Prestamo
+select *from Devolucion

@@ -1,0 +1,12 @@
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\bin\Debug\WhizzHardBooks.exe.config
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\bin\Debug\WhizzHardBooks.exe
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\bin\Debug\WhizzHardBooks.pdb
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.csprojResolveAssemblyReference.cache
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.Consultar_Libro.resources
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.Biblioteca.resources
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.Properties.Resources.resources
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.Registrar.resources
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.csproj.GenerateResource.Cache
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.exe
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.pdb
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\TareaPractica1Final\WhizzHardBooks\WhizzHardBooks\obj\Debug\WhizzHardBooks.Inscripcion.resources
