@@ -1,0 +1,6 @@
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Fase2\QuetzalExpress\QuetzalExpress\bin\QuetzalExpress.dll.config
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Fase2\QuetzalExpress\QuetzalExpress\bin\QuetzalExpress.dll
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Fase2\QuetzalExpress\QuetzalExpress\bin\QuetzalExpress.pdb
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Fase2\QuetzalExpress\QuetzalExpress\obj\Debug\QuetzalExpress.csprojResolveAssemblyReference.cache
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Fase2\QuetzalExpress\QuetzalExpress\obj\Debug\QuetzalExpress.dll
+C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\Fase2\QuetzalExpress\QuetzalExpress\obj\Debug\QuetzalExpress.pdb
