@@ -6,6 +6,7 @@ http://templated.co
 Released for free under the Creative Commons Attribution License
 */
 
+
 body {
 	margin: 0;
 	padding: 0;
@@ -53,6 +54,9 @@ a {
 a:hover {
 }
 
+#contenedor {
+    margin: 50px;
+}
 #wrapper {
 	padding-top: 50px;
 }

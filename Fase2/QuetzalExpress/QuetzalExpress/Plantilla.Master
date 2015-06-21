@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Plantilla.master.cs" Inherits="QuetzalExpress.Plantilla" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <img src="/images/img09.jpg" alt="logo paqueteria" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+
+        <div id="cabecera">
+            <div id="contenidoCabecera">
+               
+                <div id="barraHorizontal">
+                    <ul>
+                        <li> <a href="Home.aspx"> </a>Inicio</li>
+                        <li> <a href="/SinLogin/Contacto.aspx"> </a>Contactanos</li>
+                        <li> <a href="/SinLogin/Login.aspx"> </a>Iniciar Sesion</li>
+                    </ul>
+
+                </div>
+                <div id="titulo">
+                    <h1 style="width: 230px; margin-left: 530px; margin-top: 0px; margin-bottom: 6px"> Quetzal Express</h1>
+                </div>
+            </div>
+        </div>
+        <div id="bajo">
+            <div id="columIzq">
+                <asp:ContentPlaceHolder ID="contenidoMenuContextual" runat="server">
+                    <ul>
+                        <li> <a href="Home.aspx"</a>Inicio</li>
+                        <li><a href="SinLogin/Contacto.aspx">Contactanos </a></li>
+                        <li><a href="SinLogin/Login.aspx">Login </a></li>
+                        <li><a href="Home.aspx">Logout out </a></li>
+                    </ul>
+        
+                </asp:ContentPlaceHolder>
+
+            </div>
+            <div id="columCentro">
+
+                <asp:ContentPlaceHolder ID="contenidoPrincipal" runat="server">
+        
+                </asp:ContentPlaceHolder>
+
+            </div>
+            <div id="columDerecha">
+
+            </div>
+            <div id="pie">
+                <span>Diseñado por Johnny Bravo</span>
+
+            </div>
+
+        </div>
+        
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,140 @@
+﻿body {
+}
+#cabecera
+{
+    height:250px;
+    background: url('../../images/img09.jpg') no-repeat center;
+    color: black;
+    border: 1px dashed #A64E06;
+    box-shadow: 0px 0px 10px #000;
+    position:relative;
+    z-index:2;
+}
+    #cabecera > img
+    {
+        box-shadow:0px 0px 10px #000 inset;
+    }
+
+
+#contenidoCabecera
+{
+    width: 960px;
+    margin: auto;
+}
+
+#barraHorizontal 
+{
+    height: 40px;
+    background-color:#A64E06;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 0px 10px #000 inset;
+    text-align:center;
+}
+
+    #barraHorizontal > ul
+    {
+        list-style-type:none;
+        padding:0;
+        margin:0;
+    }
+
+    #barraHorizontal  li
+    {
+        display:inline-block;
+        padding:10px;
+        cursor:pointer;
+        background-color:#FF9A40;
+        color:#A64E06;
+
+    }
+
+    #barraHorizontal  li > a
+    {
+        display:block;
+        color:#A64E06;
+        text-decoration:none;
+        font-weight:bold;
+        box-shadow:0px 0px 10px #000 inset;
+    }
+
+#logotipo
+{
+    width: 20%;
+    background: url('../../images/img09.jpg') no-repeat top center;
+}
+
+nter;
+}
+
+#titulo
+{
+    width: 100%;
+    float: right;
+    text-shadow:2px 2px 3px #000;
+}
+    #titulo > h1
+    {
+        
+    }
+
+#bajo
+{
+    width:960px;
+    margin: auto;
+    background-color:#FF9A40;
+    border-radius: 0px 0px 20px 20px;
+    overflow:auto;
+    box-shadow: 0px 0px 10px #000;
+}
+
+#columIzq, #columDerecha
+{
+    float: left;
+    width: 20%;
+    min-height: 500px;
+}
+
+#menuContextual
+{
+    list-style-type:none;
+    padding:0;
+    margin:50px 0;
+}
+
+    #menuContextual > li
+    {
+        height:30px;
+        padding-top:7px;
+        padding:10;
+        text-align:center;
+        background-color:#A64E06;
+        border:1px outset #A64E06;
+        box-shadow:0px 0px 10px #000 inset;
+    }
+        #menuContextual > li > a
+        {
+            
+            text-decoration:none;
+            color:white;
+        }
+
+#columCentro
+{
+    float: left;
+    width: 60%;
+    min-height: 500px;
+    background-color: white;
+    box-shadow: 0px 0px 10px #000 inset;
+}
+#pie
+{
+    height: 30px;
+    background-color:#A64E06;
+    border-radius: 0px 0px 20px 20px;
+    clear: both;
+    box-shadow: 0px 0px 10px #000 inset;
+    color:white;
+    text-align:center;
+    padding-top:5px;
+}
+
