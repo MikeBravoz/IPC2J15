@@ -22,6 +22,9 @@ namespace QuetzalExpress.ConexionWeb {
         // CODEGEN: Generating message contract since element name nombre from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Guardar", ReplyAction="*")]
         QuetzalExpress.ConexionWeb.GuardarResponse Guardar(QuetzalExpress.ConexionWeb.GuardarRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CargarClientes", ReplyAction="*")]
+        int CargarClientes();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -258,6 +261,10 @@ namespace QuetzalExpress.ConexionWeb {
             inValue.Body.banco = banco;
             QuetzalExpress.ConexionWeb.GuardarResponse retVal = ((QuetzalExpress.ConexionWeb.ServiceSoap)(this)).Guardar(inValue);
             return retVal.Body.GuardarResult;
+        }
+        
+        public int CargarClientes() {
+            return base.Channel.CargarClientes();
         }
     }
 }

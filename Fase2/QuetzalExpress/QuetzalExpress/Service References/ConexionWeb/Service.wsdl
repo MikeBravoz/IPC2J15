@@ -37,6 +37,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CargarClientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="CargarClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarClientesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -51,6 +61,12 @@
   <wsdl:message name="GuardarSoapOut">
     <wsdl:part name="parameters" element="tns:GuardarResponse" />
   </wsdl:message>
+  <wsdl:message name="CargarClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarClientes" />
+  </wsdl:message>
+  <wsdl:message name="CargarClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarClientesResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServiceSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -59,6 +75,10 @@
     <wsdl:operation name="Guardar">
       <wsdl:input message="tns:GuardarSoapIn" />
       <wsdl:output message="tns:GuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarClientes">
+      <wsdl:input message="tns:CargarClientesSoapIn" />
+      <wsdl:output message="tns:CargarClientesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
@@ -81,6 +101,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargarClientes">
+      <soap:operation soapAction="http://tempuri.org/CargarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -95,6 +124,15 @@
     </wsdl:operation>
     <wsdl:operation name="Guardar">
       <soap12:operation soapAction="http://tempuri.org/Guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarClientes">
+      <soap12:operation soapAction="http://tempuri.org/CargarClientes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

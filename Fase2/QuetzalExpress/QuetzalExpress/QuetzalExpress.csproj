@@ -57,8 +57,9 @@
   <ItemGroup>
     <Content Include="Administrador.aspx" />
     <Content Include="App_Themes\Theme1\estilos.css" />
-    <Content Include="Clientes\CasilleroCliente.aspx" />
-    <Content Include="Clientes\NuevosClientes.aspx" />
+    <Content Include="css\Casillero.css" />
+    <Content Include="Otra Plantilla\Clientes\CasilleroCliente.aspx" />
+    <Content Include="Otra Plantilla\Clientes\NuevosClientes.aspx" />
     <Content Include="Cliente\Casillero.aspx" />
     <Content Include="css\Administrador.css" />
     <Content Include="css\default.css" />
@@ -67,7 +68,7 @@
     <Content Include="css\style.css" />
     <Content Include="css\templatemo_style.css" />
     <Content Include="Cliente\FormularioNuevos.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="Otra Plantilla\Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="images\img01.jpg" />
     <Content Include="images\img02.jpg" />
@@ -97,7 +98,7 @@
     <Content Include="OtraImagen\images\pic4.jpg" />
     <Content Include="OtraImagen\index.html" />
     <Content Include="OtraImagen\license.txt" />
-    <Content Include="Principal.aspx" />
+    <Content Include="Otra Plantilla\Principal.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -108,8 +109,8 @@
     <Content Include="OtraImagen\fonts\fontawesome-webfont.ttf" />
     <Content Include="OtraImagen\fonts\fontawesome-webfont.woff" />
     <Content Include="OtraImagen\fonts\FontAwesome.otf" />
-    <Content Include="Plantilla.Master" />
-    <Content Include="Clientes\MPClientes.master" />
+    <Content Include="Otra Plantilla\Plantilla.Master" />
+    <Content Include="Otra Plantilla\Clientes\MPClientes.master" />
     <None Include="Service References\ConexionWeb\Service.disco" />
     <None Include="Service References\ConexionWeb\configuration91.svcinfo" />
     <None Include="Service References\ConexionWeb\configuration.svcinfo" />
@@ -117,9 +118,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="SinLogin\Contacto.aspx" />
-    <Content Include="SinLogin\Login.aspx" />
-    <Content Include="SinLogin\Logout.aspx" />
+    <Content Include="Otra Plantilla\SinLogin\Contacto.aspx" />
+    <Content Include="Otra Plantilla\SinLogin\Login.aspx" />
+    <Content Include="Otra Plantilla\SinLogin\Logout.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,25 +131,25 @@
     <Compile Include="Administrador.aspx.designer.cs">
       <DependentUpon>Administrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\CasilleroCliente.aspx.cs">
+    <Compile Include="Otra Plantilla\Clientes\CasilleroCliente.aspx.cs">
       <DependentUpon>CasilleroCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\CasilleroCliente.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\Clientes\CasilleroCliente.aspx.designer.cs">
       <DependentUpon>CasilleroCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\MPClientes.master.cs">
+    <Compile Include="Otra Plantilla\Clientes\MPClientes.master.cs">
       <DependentUpon>MPClientes.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\MPClientes.master.designer.cs">
+    <Compile Include="Otra Plantilla\Clientes\MPClientes.master.designer.cs">
       <DependentUpon>MPClientes.master</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\NuevosClientes.aspx.cs">
+    <Compile Include="Otra Plantilla\Clientes\NuevosClientes.aspx.cs">
       <DependentUpon>NuevosClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\NuevosClientes.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\Clientes\NuevosClientes.aspx.designer.cs">
       <DependentUpon>NuevosClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Casillero.aspx.cs">
@@ -166,11 +167,11 @@
       <DependentUpon>FormularioNuevos.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetSetNuevos.cs" />
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="Otra Plantilla\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -180,18 +181,18 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Plantilla.Master.cs">
+    <Compile Include="Otra Plantilla\Plantilla.Master.cs">
       <DependentUpon>Plantilla.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Plantilla.Master.designer.cs">
+    <Compile Include="Otra Plantilla\Plantilla.Master.designer.cs">
       <DependentUpon>Plantilla.Master</DependentUpon>
     </Compile>
-    <Compile Include="Principal.aspx.cs">
+    <Compile Include="Otra Plantilla\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Principal.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,32 +201,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="SinLogin\Contacto.aspx.cs">
+    <Compile Include="Otra Plantilla\SinLogin\Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SinLogin\Contacto.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\SinLogin\Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SinLogin\Login.aspx.cs">
+    <Compile Include="Otra Plantilla\SinLogin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SinLogin\Login.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\SinLogin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SinLogin\Logout.aspx.cs">
+    <Compile Include="Otra Plantilla\SinLogin\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SinLogin\Logout.aspx.designer.cs">
+    <Compile Include="Otra Plantilla\SinLogin\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SinLogin\SinLogin.master.cs">
+    <Compile Include="Otra Plantilla\SinLogin\SinLogin.master.cs">
       <DependentUpon>SinLogin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SinLogin\SinLogin.master.designer.cs">
+    <Compile Include="Otra Plantilla\SinLogin\SinLogin.master.designer.cs">
       <DependentUpon>SinLogin.master</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -234,7 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ConexionWeb\Service.wsdl" />
-    <Content Include="SinLogin\SinLogin.master" />
+    <Content Include="Otra Plantilla\SinLogin\SinLogin.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

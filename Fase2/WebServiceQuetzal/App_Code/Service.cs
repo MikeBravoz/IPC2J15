@@ -15,7 +15,7 @@ using System.Data;
 public class Service : System.Web.Services.WebService
 {
     //Direccion de nuestra conexion con la base de datos***
-  
+    SqlConnection conexion = new SqlConnection("Data Source=PERSONAL;Initial Catalog=PruevaQuetzal;Integrated Security=True");
 
     public Service () {
 
@@ -87,6 +87,19 @@ public class Service : System.Web.Services.WebService
     //    cmd2.ExecuteNonQuery();
     //    con.Close();
     //}
+
+    [WebMethod]
+    public int CargarClientes()
+    {
+        conexion.Open();
+        SqlDataAdapter daClientes = new SqlDataAdapter("SELECT *FROM Clientes", conexion);
+        DataSet dsClientes = new DataSet();
+
+        daClientes.Fill(dsClientes, "Clientes");
+
+
+        return daClientes.Fill(dsClientes, "Clientes");
+    }
 
    
 

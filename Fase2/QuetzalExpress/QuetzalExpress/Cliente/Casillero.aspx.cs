@@ -9,9 +9,21 @@ namespace QuetzalExpress.Cliente
 {
     public partial class Casillero : System.Web.UI.Page
     {
+        ConexionWeb.ServiceSoapClient con = new ConexionWeb.ServiceSoapClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        
+     
     }
 }
