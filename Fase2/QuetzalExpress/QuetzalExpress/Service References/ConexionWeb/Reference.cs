@@ -9,195 +9,40 @@
 //------------------------------------------------------------------------------
 
 namespace QuetzalExpress.ConexionWeb {
+    using System.Data;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConexionWeb.ServiceSoap")]
     public interface ServiceSoap {
         
-        // CODEGEN: Generating message contract since element name HelloWorldResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        QuetzalExpress.ConexionWeb.HelloWorldResponse HelloWorld(QuetzalExpress.ConexionWeb.HelloWorldRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string HelloWorld();
         
-        // CODEGEN: Generating message contract since element name nombre from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Guardar", ReplyAction="*")]
-        QuetzalExpress.ConexionWeb.GuardarResponse Guardar(QuetzalExpress.ConexionWeb.GuardarRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool Guardar(string nombre, string apellido, int dpi, int nit, int telefono, string direccion, string email, string fecnac, int numtar, string tiptar, string fecex, string banco);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CargarClientes", ReplyAction="*")]
-        int CargarClientes();
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet CargarClientes();
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public QuetzalExpress.ConexionWeb.HelloWorldRequestBody Body;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CargarDatos", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool CargarDatos(string datos);
         
-        public HelloWorldRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoguinCliente", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoguinCliente(string Usuario, string Contrasena);
         
-        public HelloWorldRequest(QuetzalExpress.ConexionWeb.HelloWorldRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Loguin", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Loguin(string Usuario, string Contrasena);
         
-        public HelloWorldRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public QuetzalExpress.ConexionWeb.HelloWorldResponseBody Body;
-        
-        public HelloWorldResponse() {
-        }
-        
-        public HelloWorldResponse(QuetzalExpress.ConexionWeb.HelloWorldResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
-        
-        public HelloWorldResponseBody() {
-        }
-        
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GuardarRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Guardar", Namespace="http://tempuri.org/", Order=0)]
-        public QuetzalExpress.ConexionWeb.GuardarRequestBody Body;
-        
-        public GuardarRequest() {
-        }
-        
-        public GuardarRequest(QuetzalExpress.ConexionWeb.GuardarRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GuardarRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nombre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string apellido;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int dpi;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int nit;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public int telefono;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string direccion;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string email;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string fecnac;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-        public int numtar;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public string tiptar;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public string fecex;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
-        public string banco;
-        
-        public GuardarRequestBody() {
-        }
-        
-        public GuardarRequestBody(string nombre, string apellido, int dpi, int nit, int telefono, string direccion, string email, string fecnac, int numtar, string tiptar, string fecex, string banco) {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dpi = dpi;
-            this.nit = nit;
-            this.telefono = telefono;
-            this.direccion = direccion;
-            this.email = email;
-            this.fecnac = fecnac;
-            this.numtar = numtar;
-            this.tiptar = tiptar;
-            this.fecex = fecex;
-            this.banco = banco;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GuardarResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GuardarResponse", Namespace="http://tempuri.org/", Order=0)]
-        public QuetzalExpress.ConexionWeb.GuardarResponseBody Body;
-        
-        public GuardarResponse() {
-        }
-        
-        public GuardarResponse(QuetzalExpress.ConexionWeb.GuardarResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GuardarResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool GuardarResult;
-        
-        public GuardarResponseBody() {
-        }
-        
-        public GuardarResponseBody(bool GuardarResult) {
-            this.GuardarResult = GuardarResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarCategoria", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string insertarCategoria(string nombre, int impuesto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -227,44 +72,32 @@ namespace QuetzalExpress.ConexionWeb {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QuetzalExpress.ConexionWeb.HelloWorldResponse QuetzalExpress.ConexionWeb.ServiceSoap.HelloWorld(QuetzalExpress.ConexionWeb.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
-        }
-        
         public string HelloWorld() {
-            QuetzalExpress.ConexionWeb.HelloWorldRequest inValue = new QuetzalExpress.ConexionWeb.HelloWorldRequest();
-            inValue.Body = new QuetzalExpress.ConexionWeb.HelloWorldRequestBody();
-            QuetzalExpress.ConexionWeb.HelloWorldResponse retVal = ((QuetzalExpress.ConexionWeb.ServiceSoap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        QuetzalExpress.ConexionWeb.GuardarResponse QuetzalExpress.ConexionWeb.ServiceSoap.Guardar(QuetzalExpress.ConexionWeb.GuardarRequest request) {
-            return base.Channel.Guardar(request);
+            return base.Channel.HelloWorld();
         }
         
         public bool Guardar(string nombre, string apellido, int dpi, int nit, int telefono, string direccion, string email, string fecnac, int numtar, string tiptar, string fecex, string banco) {
-            QuetzalExpress.ConexionWeb.GuardarRequest inValue = new QuetzalExpress.ConexionWeb.GuardarRequest();
-            inValue.Body = new QuetzalExpress.ConexionWeb.GuardarRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.apellido = apellido;
-            inValue.Body.dpi = dpi;
-            inValue.Body.nit = nit;
-            inValue.Body.telefono = telefono;
-            inValue.Body.direccion = direccion;
-            inValue.Body.email = email;
-            inValue.Body.fecnac = fecnac;
-            inValue.Body.numtar = numtar;
-            inValue.Body.tiptar = tiptar;
-            inValue.Body.fecex = fecex;
-            inValue.Body.banco = banco;
-            QuetzalExpress.ConexionWeb.GuardarResponse retVal = ((QuetzalExpress.ConexionWeb.ServiceSoap)(this)).Guardar(inValue);
-            return retVal.Body.GuardarResult;
+            return base.Channel.Guardar(nombre, apellido, dpi, nit, telefono, direccion, email, fecnac, numtar, tiptar, fecex, banco);
         }
         
-        public int CargarClientes() {
+        public System.Data.DataSet CargarClientes() {
             return base.Channel.CargarClientes();
+        }
+        
+        public bool CargarDatos(string datos) {
+            return base.Channel.CargarDatos(datos);
+        }
+        
+        public string LoguinCliente(string Usuario, string Contrasena) {
+            return base.Channel.LoguinCliente(Usuario, Contrasena);
+        }
+        
+        public string Loguin(string Usuario, string Contrasena) {
+            return base.Channel.Loguin(Usuario, Contrasena);
+        }
+        
+        public string insertarCategoria(string nombre, int impuesto) {
+            return base.Channel.insertarCategoria(nombre, impuesto);
         }
     }
 }

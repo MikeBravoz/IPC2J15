@@ -22,10 +22,10 @@
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Inicio</a></li>
+					<li class="current_page_item"><a href="Login.aspx">Inicio</a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="SinLogin/Contacto.aspx">Contactanos</a></li>
 					<li><a href="#"></a></li>
 				</ul>
 			</div>
@@ -49,6 +49,8 @@
 				<div style="clear: both;" id="usuario">&nbsp;<asp:Label ID="Label1" runat="server" Text="USUARIO"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtusuario" runat="server" OnTextChanged="txtusuario_TextChanged"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnacceder" runat="server" OnClick="btnacceder_Click" Text="ACCEDER" Width="89px" />
                 </div>
                 <div style="clear: both;" id="password">&nbsp;<asp:Label ID="Label2" runat="server" Text="PASSWORD"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

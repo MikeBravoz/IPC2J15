@@ -43,7 +43,73 @@
       <s:element name="CargarClientesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CargarClientesResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CargarClientesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarDatos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarDatosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarDatosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoguinCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasena" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoguinClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoguinClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Loguin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrasena" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoguinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoguinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="impuesto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertarCategoriaResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -67,6 +133,30 @@
   <wsdl:message name="CargarClientesSoapOut">
     <wsdl:part name="parameters" element="tns:CargarClientesResponse" />
   </wsdl:message>
+  <wsdl:message name="CargarDatosSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarDatos" />
+  </wsdl:message>
+  <wsdl:message name="CargarDatosSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarDatosResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoguinClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:LoguinCliente" />
+  </wsdl:message>
+  <wsdl:message name="LoguinClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:LoguinClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoguinSoapIn">
+    <wsdl:part name="parameters" element="tns:Loguin" />
+  </wsdl:message>
+  <wsdl:message name="LoguinSoapOut">
+    <wsdl:part name="parameters" element="tns:LoguinResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarCategoria" />
+  </wsdl:message>
+  <wsdl:message name="insertarCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarCategoriaResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServiceSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -79,6 +169,22 @@
     <wsdl:operation name="CargarClientes">
       <wsdl:input message="tns:CargarClientesSoapIn" />
       <wsdl:output message="tns:CargarClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarDatos">
+      <wsdl:input message="tns:CargarDatosSoapIn" />
+      <wsdl:output message="tns:CargarDatosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoguinCliente">
+      <wsdl:input message="tns:LoguinClienteSoapIn" />
+      <wsdl:output message="tns:LoguinClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Loguin">
+      <wsdl:input message="tns:LoguinSoapIn" />
+      <wsdl:output message="tns:LoguinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarCategoria">
+      <wsdl:input message="tns:insertarCategoriaSoapIn" />
+      <wsdl:output message="tns:insertarCategoriaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
@@ -110,6 +216,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CargarDatos">
+      <soap:operation soapAction="http://tempuri.org/CargarDatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoguinCliente">
+      <soap:operation soapAction="http://tempuri.org/LoguinCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Loguin">
+      <soap:operation soapAction="http://tempuri.org/Loguin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarCategoria">
+      <soap:operation soapAction="http://tempuri.org/insertarCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -133,6 +275,42 @@
     </wsdl:operation>
     <wsdl:operation name="CargarClientes">
       <soap12:operation soapAction="http://tempuri.org/CargarClientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarDatos">
+      <soap12:operation soapAction="http://tempuri.org/CargarDatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoguinCliente">
+      <soap12:operation soapAction="http://tempuri.org/LoguinCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Loguin">
+      <soap12:operation soapAction="http://tempuri.org/Loguin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarCategoria">
+      <soap12:operation soapAction="http://tempuri.org/insertarCategoria" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

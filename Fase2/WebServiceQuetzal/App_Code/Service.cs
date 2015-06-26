@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Data;
 
+
 [WebService(Namespace = "http://tempuri.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -15,7 +16,7 @@ using System.Data;
 public class Service : System.Web.Services.WebService
 {
     //Direccion de nuestra conexion con la base de datos***
-    SqlConnection conexion = new SqlConnection("Data Source=PERSONAL;Initial Catalog=PruevaQuetzal;Integrated Security=True");
+    SqlConnection conexion = new SqlConnection("Data Source=PERSONAL;Initial Catalog=QuetzalExpress;Integrated Security=True");
 
     public Service () {
 
@@ -34,7 +35,7 @@ public class Service : System.Web.Services.WebService
     public Boolean Guardar(string nombre, string apellido, int dpi, int nit, int telefono, string direccion, string email, string fecnac, int numtar,  string tiptar, string fecex, string banco)
     {
 
-        SqlConnection conect = new SqlConnection("Data Source=PERSONAL;Initial Catalog=PruevaQuetzal;Integrated Security=True");
+        SqlConnection conect = new SqlConnection("Data Source=PERSONAL;Initial Catalog=QuetzalExpress;Integrated Security=True");
         
         conect.Open();
         SqlCommand command = new SqlCommand();
@@ -62,46 +63,117 @@ public class Service : System.Web.Services.WebService
         return true;
     }
 
-    //[WebMethod]
-    //public void INSERTAR(ClsUsr Usuario)
-    //{
-    //    SqlConnection con = new SqlConnection("Data Source=PERSONAL;Initial Catalog=DBTamakoMarket;Integrated Security=True");
-    //    con.Open();
-    //    SqlCommand cmd2 = new SqlCommand();
-    //    cmd2.Connection = con;
-    //    cmd2.CommandType = CommandType.Text;
-    //    cmd2.CommandText = "INSERT INTO Tabla_Cliente VALUES(@Nombre_Cliente, @Usuario_Cliente, @Contrasena_Cliente, @Dpi_Cliente, @Nit_Cliente, @Telefono_Cliente, @Direccion_Cliente, @Correo_Cliente, @Edad_Cliente, @Sexo_Cliente)";
-
-    //    cmd2.Parameters.Add("@Nombre_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Nombre_Cliente;
-    //    cmd2.Parameters.Add("@Usuario_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Usuario_Cliente;
-    //    cmd2.Parameters.Add("@Contrasena_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Contrasena_Cliente;
-    //    cmd2.Parameters.Add("@Dpi_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Dpi_Cliente;
-    //    cmd2.Parameters.Add("@Nit_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Nit_Cliente;
-    //    cmd2.Parameters.Add("@Telefono_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Telefono_Cliente;
-    //    cmd2.Parameters.Add("@Direccion_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Direccion_Cliente;
-    //    cmd2.Parameters.Add("@Correo_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Correo_Cliente;
-    //    cmd2.Parameters.Add("@Edad_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Edad_Cliente;
-    //    cmd2.Parameters.Add("@Sexo_Cliente", SqlDbType.VarChar, 50).Value = Usuario.Sexo_Cliente;
-
-
-    //    cmd2.ExecuteNonQuery();
-    //    con.Close();
-    //}
 
     [WebMethod]
-    public int CargarClientes()
+    public DataSet CargarClientes()
     {
+
+        
         conexion.Open();
-        SqlDataAdapter daClientes = new SqlDataAdapter("SELECT *FROM Clientes", conexion);
-        DataSet dsClientes = new DataSet();
+        SqlDataAdapter daClientes;
+        DataSet dsClientes= new DataSet();
+        DataTable dt;
+        try
+        {
 
-        daClientes.Fill(dsClientes, "Clientes");
+            dt= new DataTable();
+            daClientes= new SqlDataAdapter("SELECT *FROM Clientes", conexion);
+            daClientes.Fill(dt);
+           
+           
+        
+            //daClientes.Fill(dsClientes, "Clientes");
+            //datos = dsClientes;
+            conexion.Close();
+            
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        
+        return dsClientes;
+    }
+
+    [WebMethod]
+    public Boolean CargarDatos(string datos)
+    {
 
 
-        return daClientes.Fill(dsClientes, "Clientes");
+        return true;
+    }
+
+    [WebMethod]
+
+    public string LoguinCliente(String Usuario, String Contrasena)
+    {
+        
+        String SessionC;
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
+        conexion.Open();
+        cmd.Connection = conexion;
+        cmd.CommandText = "SELECT * from Cliente WHERE nombreCliente='" + Usuario + "' AND codigoCasilla='" + Contrasena + "'";
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        if (dr.HasRows)
+        {
+            SessionC = Usuario;
+        }
+        else
+        {
+            SessionC = null;
+            conexion.Close();
+        }
+        return SessionC;
+    }
+
+    [WebMethod]
+
+    public string Loguin(String Usuario, String Contrasena)
+    {
+        String Session;
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
+        conexion.Open();
+        cmd.Connection = conexion;
+        cmd.CommandText = "SELECT * from Empleado WHERE nombreEmpleado='" + Usuario + "' AND idEmpleado='" + Contrasena + "'";
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        if (dr.HasRows)
+        {
+            Session = Usuario;
+        }
+        else
+        {
+            Session = null;
+            conexion.Close();
+        }
+        return Session;
+    }
+
+    [WebMethod]
+    public string insertarCategoria(string nombre, int impuesto)
+    {
+        string vel="";
+        try
+        {
+            conexion.Open();
+            string consulta = "Insert into Impuestos (categoriaImpuesto, impuesto) Values('" + nombre + "','" + impuesto + "')";
+            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+            SqlCommand cmd;
+            cmd = new SqlCommand(consulta, conexion);
+            cmd.ExecuteNonQuery();
+        }
+        catch(Exception ex)
+        {
+            vel = "hubo un error" + ex;
+        }
+
+
+        return vel;
     }
 
    
-
     }
     

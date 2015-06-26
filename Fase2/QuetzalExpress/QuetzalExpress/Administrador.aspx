@@ -10,7 +10,7 @@
 <title>WildFlowers by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
-<link href="css/login.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/Administrador.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
 
@@ -24,20 +24,20 @@
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Inicio</a></li>
+					<li class="current_page_item"><a href="Login.aspx">Inicio</a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="SinLogin/Contacto.aspx">Conctactanos</a></li>
+					<li><a href="Login.aspx">Logout</a></li>
 				</ul>
 			</div>
 		</div>
-		<div><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+		<div><img src="/images/img03.png" width="1000" height="40" alt="" /></div>
 	</div>
 	<!-- end #header -->
 	<div id="banner">
-		<div class="content"><img src="images/img07.jpg" width="980" height="270" alt="" /></div>
-		<div><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+		<div class="content"><img src="/images/img07.jpg" width="980" height="270" alt="" /></div>
+		<div><img src="/images/img03.png" height="40" alt="" style="width: 1000px" /></div>
 	</div>
 	<div id="page">
 		<div id="content">
@@ -51,21 +51,37 @@
 				<div style="clear: both;" id="usuario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 <div style="clear: both;" id="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label1" runat="server" Text="Cargar Archivos  .CSV"></asp:Label>
                     </div>
+			    <div>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btncargar" runat="server" OnClick="btncargar_Click" Text="CARGAR" />
+                </div>
+                <div>
+                    <asp:GridView ID="dgvDatos" runat="server">
+                    </asp:GridView>
+                    <asp:TextBox ID="txtpantalla" runat="server" Height="151px" TextMode="MultiLine" Width="283px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;
+                </div>
 			</div>
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
+		    <div>
+                <asp:Button ID="btnClasificacion" runat="server" OnClick="btnClasificacion_Click" Text="Clasificacion Paquetes" />
+            </div>
 		</div>
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>
-	<div class="container"><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+	<div class="container"><img src="/images/img03.png" width="1000" height="40" alt="" /></div>
 	<!-- end #page --> 
 </div>
 <div id="footer-content"></div>
 <div id="footer">
-	<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
+	<p>&copy; Untitled. All rights reserved. Design by TED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
 </div>
 <!-- end #footer -->
     </form>

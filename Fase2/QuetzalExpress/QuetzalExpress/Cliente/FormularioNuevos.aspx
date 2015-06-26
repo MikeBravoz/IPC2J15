@@ -24,11 +24,11 @@
 			</div>
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><a href="#">Inicio</a></li>
+					<li class="current_page_item"><a href="../Login.aspx">Inicio</a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#">Nosotros</a></li>
+					<li><a href="#">Contactanos</a></li>
+					<li><a href="#">LOgout</a></li>
 				</ul>
 			</div>
 		</div>
