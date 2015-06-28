@@ -32,7 +32,6 @@ namespace QuetzalExpress
             CMD.Fill(ds, "DATOS");
             DataTable TablaRol = ds.Tables[0];
             string rol = TablaRol.Rows[0]["rolEmpleado"].ToString();
-            //Response.Write("El usuario es de tipo:" + rol);
             return rol;
         }
 
@@ -47,10 +46,11 @@ namespace QuetzalExpress
             String Contrasena = txtpassword.Text;
 
             String User;
+            String Pass;
 
             ConexionWeb.ServiceSoapClient conect = new ConexionWeb.ServiceSoapClient();
-            User = conect.LoguinCliente(Usuario, Contrasena); 
-
+            User = conect.LoguinCliente(Usuario, Contrasena);
+           // User2 = conect.Loguin(Usuario, Contrasena);
             
 
             Session["SessionCliente"] = User;
@@ -58,21 +58,22 @@ namespace QuetzalExpress
             if (Session["SessionCliente"] == null)
             {
                 User = conect.Loguin(Usuario, Contrasena);
-               
+                Pass = conect.LoguinPass(Usuario, Contrasena);
                 Session["SessionEmpleado"] = User;
+                Session["PassEmpleado"] = Pass;
                 if (Session["SessionEmpleado"] == null)
                 {
                     Response.Write("Usuario o Contrasena INCORRECTA... Intente de nuevo..!");
                 }
                 else
                 {
-                    if (AnalisarUsuario(User) == "administrador")
+                    if (AnalisarUsuario(Pass) == "administrador")
                     {
                         Response.Redirect("Administrador.aspx");
                     }
-                    if (AnalisarUsuario(User) == "empleado")
+                    if (AnalisarUsuario(Pass) == "empleado")
                     {
-                        Response.Redirect("/Empleado/PrincipalEmpleado");
+                        Response.Redirect("~/Empleado/PrincipalEmpleado.aspx");
                     }
                 }
                 //Response.Redirect("Principal.aspx");
@@ -83,14 +84,6 @@ namespace QuetzalExpress
                 Response.Redirect("/Cliente/Casillero.aspx");
             }
         
-        
-
-
-
-
-
-
-
     
 
         }

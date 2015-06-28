@@ -59,20 +59,13 @@
                     <asp:Button ID="btncargar" runat="server" OnClick="btncargar_Click" Text="CARGAR" />
                 </div>
                 <div>
-                    <asp:GridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" DataKeyNames="codImpuesto" DataSourceID="SqlDataSource1" EnableModelValidation="True" CellPadding="4" ForeColor="#333333" GridLines="None">
-                        <AlternatingRowStyle BackColor="White" />
+                    <asp:GridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" DataKeyNames="codImpuesto" DataSourceID="SqlDataSource1" EnableModelValidation="True">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="codImpuesto" HeaderText="codImpuesto" InsertVisible="False" ReadOnly="True" SortExpression="codImpuesto" />
                             <asp:BoundField DataField="categoriaImpuesto" HeaderText="categoriaImpuesto" SortExpression="categoriaImpuesto" />
                             <asp:BoundField DataField="impuesto" HeaderText="impuesto" SortExpression="impuesto" />
                         </Columns>
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuetzalExpressConnectionString1 %>" DeleteCommand="DELETE FROM [Impuestos] WHERE [codImpuesto] = @codImpuesto" InsertCommand="INSERT INTO [Impuestos] ([categoriaImpuesto], [impuesto]) VALUES (@categoriaImpuesto, @impuesto)" SelectCommand="SELECT * FROM [Impuestos]" UpdateCommand="UPDATE [Impuestos] SET [categoriaImpuesto] = @categoriaImpuesto, [impuesto] = @impuesto WHERE [codImpuesto] = @codImpuesto">
                         <DeleteParameters>

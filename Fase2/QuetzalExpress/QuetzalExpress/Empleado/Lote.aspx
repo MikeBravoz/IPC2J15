@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrincipalEmpleado.aspx.cs" Inherits="QuetzalExpress.Empleado.PrincipalCliente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Lote.aspx.cs" Inherits="QuetzalExpress.Empleado.Lote" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
 <title>WildFlowers by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
-<link href="../css/PrincipalCliente.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="../css/Administrador.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
 
@@ -42,7 +42,7 @@
 	<div id="page">
 		<div id="content">
 			<div class="post">
-				<h2 class="title"><a href="#">Bienvenido  </a>&nbsp;
+				<h2 class="title"><a href="#">Lote  </a>&nbsp;
                     <asp:Label ID="lblusuario" runat="server" style="font-size: x-large" Text="Anonimo" Visible="False"></asp:Label>
                 </h2>
 				<div id="fecha">
@@ -80,4 +80,3 @@
     </form>
 </body>
 </html>
-

@@ -10,7 +10,7 @@
 namespace QuetzalExpress.Empleado {
     
     
-    public partial class PrincipalCliente {
+    public partial class Lote {
         
         /// <summary>
         /// form1 control.

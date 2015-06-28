@@ -40,9 +40,21 @@ namespace QuetzalExpress.ConexionWeb {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string Loguin(string Usuario, string Contrasena);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoguinPass", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoguinPass(string Usuario, string Contrasena);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarCategoria", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string insertarCategoria(string nombre, int impuesto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarPaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool insertarPaquete(string clasificacion, string descripcion, int peso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCodigoPaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string obtenerCodigoPaquete();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -96,8 +108,20 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.Loguin(Usuario, Contrasena);
         }
         
+        public string LoguinPass(string Usuario, string Contrasena) {
+            return base.Channel.LoguinPass(Usuario, Contrasena);
+        }
+        
         public string insertarCategoria(string nombre, int impuesto) {
             return base.Channel.insertarCategoria(nombre, impuesto);
+        }
+        
+        public bool insertarPaquete(string clasificacion, string descripcion, int peso) {
+            return base.Channel.insertarPaquete(clasificacion, descripcion, peso);
+        }
+        
+        public string obtenerCodigoPaquete() {
+            return base.Channel.obtenerCodigoPaquete();
         }
     }
 }

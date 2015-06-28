@@ -301,9 +301,10 @@ a:hover {
 
 #sidebar {
 	float: right;
-	width: 270px;
+	width: 287px;
 	margin: 0px;
 	padding: 30px 0px 0px 0px;
+    height: 129px;
 }
 
 #sidebar ul {

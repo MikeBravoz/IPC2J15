@@ -133,6 +133,7 @@ public class Service : System.Web.Services.WebService
     public string Loguin(String Usuario, String Contrasena)
     {
         String Session;
+     
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
         conexion.Open();
@@ -143,6 +144,32 @@ public class Service : System.Web.Services.WebService
         if (dr.HasRows)
         {
             Session = Usuario;
+            
+        }
+        else
+        {
+            Session = null;
+            conexion.Close();
+        }
+        return Session;
+    }
+
+    [WebMethod]
+    public string LoguinPass(String Usuario, String Contrasena)
+    {
+        String Session;
+       
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
+        conexion.Open();
+        cmd.Connection = conexion;
+        cmd.CommandText = "SELECT * from Empleado WHERE nombreEmpleado='" + Usuario + "' AND idEmpleado='" + Contrasena + "'";
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        if (dr.HasRows)
+        {
+            Session = Contrasena;
+            
         }
         else
         {
@@ -174,6 +201,84 @@ public class Service : System.Web.Services.WebService
         return vel;
     }
 
+    [WebMethod]
+    public Boolean insertarPaquete(string clasificacion, string descripcion, int peso)
+    {
+        string mensaje="";
+        try
+        {
+            conexion.Open();
+            string consulta = "Insert into Paquete (clasificacionPaquete, descripcionPaquete pesoPaquete) Values('" + clasificacion + "','" + descripcion + "','" + peso + "')";
+            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+            SqlCommand cmd;
+            cmd = new SqlCommand(consulta, conexion);
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            mensaje = "hubo un error" + ex;
+        }
+        return true;
+    }
+
+    [WebMethod]
+    public String obtenerCodigoPaquete()
+    {
+        conexion.Open();
+        SqlCommand cmdU = new SqlCommand();
+
+
+        SqlDataAdapter CMD = new SqlDataAdapter("SELECT TOP 1 * FROM Paquete ORDER BY codPaquete DESC" , conexion);
+        DataSet ds = new DataSet();
+        CMD.Fill(ds, "DATOS");
+        DataTable TablaRol = ds.Tables[0];
+
+        string codigo;
+        codigo = TablaRol.Rows[0]["codPaquete"].ToString(); 
+        return codigo;
+    }
+
+    [WebMethod]
+    public Boolean registrarPaquete(string clasificacion, string descripcion,  string peso)
+    {
+
+        conexion.Open();
+
+        SqlCommand command = new SqlCommand();
+        command.Connection = conexion;
+        command.CommandType = CommandType.Text;
+        command.CommandText = "INSERT INTO Paquete VALUES(@clasificacionPaquete, @descripcionPaquete, @pesoPaquete)";
+
+        command.Parameters.Add("clasificacionPaquete", SqlDbType.VarChar, 50).Value = clasificacion;
+        command.Parameters.Add("descripcionPaquete", SqlDbType.VarChar, 50).Value = descripcion;
+        command.Parameters.Add("pesoPaquete", SqlDbType.Int).Value = peso;
+        
+
+        command.ExecuteNonQuery();
+        conexion.Close();
+        return true;
+    }
+    
+    [WebMethod]
+
+    public Boolean ingresarCodPaquete(string codigo)
+    {
+        conexion.Open();
+
+        SqlCommand command = new SqlCommand();
+        command.Connection = conexion;
+        command.CommandType = CommandType.Text;
+        command.CommandText = "INSERT INTO  VALUES(@clasificacionPaquete, @descripcionPaquete, @pesoPaquete)";
+
+        command.Parameters.Add("clasificacionPaquete", SqlDbType.VarChar, 50).Value = clasificacion;
+        command.Parameters.Add("descripcionPaquete", SqlDbType.VarChar, 50).Value = descripcion;
+        command.Parameters.Add("pesoPaquete", SqlDbType.Int).Value = peso;
+
+
+        command.ExecuteNonQuery();
+        conexion.Close();
+        return true;
+    }
    
     }
     
