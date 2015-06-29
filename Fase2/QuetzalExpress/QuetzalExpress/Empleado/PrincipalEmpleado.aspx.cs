@@ -16,7 +16,9 @@ namespace QuetzalExpress.Empleado
         {
             lblfecha.Text = System.DateTime.Now.ToString();
             lblusuario.Text = Session["SessionEmpleado"].ToString();
-            lblusuario.Visible = true; 
+            lblusuario.Visible = true;
+           
+            
         }
 
         public string AnalisarUsuario(String password)

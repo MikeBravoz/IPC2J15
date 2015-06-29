@@ -33,7 +33,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="../Login.aspx" onabort()="session_destroy()">LOGOUT</a></li>
 				</ul>
 			</div>
 		</div>
@@ -88,8 +88,8 @@
                 <div style="clear: both;" id="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
 			    <div>
-                    <asp:Label ID="Label1" runat="server" Text="CLASIFICACION"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label1" runat="server" Text="CATEGORIA"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtclasificacion" runat="server"></asp:TextBox>
                 </div>
                 <div>
@@ -100,7 +100,7 @@
                 </div>
                 <div>
                     <asp:Label ID="Label3" runat="server" Text="PESO"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtpeso" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
@@ -111,6 +111,8 @@
                     </div>
                 </div>
                 <div>
+                    DESTINO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtdestino" runat="server"></asp:TextBox>
                 </div>
                 <div style="text-align: center">
                     <asp:Button ID="btnregistrar" runat="server" OnClick="btnregistrar_Click1" Text="REGISTRAR" Width="110px" />

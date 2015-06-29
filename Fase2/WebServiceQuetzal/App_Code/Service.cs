@@ -202,13 +202,13 @@ public class Service : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public Boolean insertarPaquete(string clasificacion, string descripcion, int peso)
+    public Boolean insertarPaquete(string clasificacion, string descripcion, string peso)
     {
         string mensaje="";
         try
         {
             conexion.Open();
-            string consulta = "Insert into Paquete (clasificacionPaquete, descripcionPaquete pesoPaquete) Values('" + clasificacion + "','" + descripcion + "','" + peso + "')";
+            string consulta = "Insert into Paquete (clasificacionPaquete, descripcionPaquete,  pesoPaquete) Values('" + clasificacion + "','" + descripcion + "','" + peso + "')";
             SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
             SqlCommand cmd;
             cmd = new SqlCommand(consulta, conexion);
@@ -238,8 +238,44 @@ public class Service : System.Web.Services.WebService
         return codigo;
     }
 
+     [WebMethod]
+    public String obtenerCodigoDetallePaquete()
+    {
+        conexion.Open();
+        SqlCommand cmdU = new SqlCommand();
+
+
+        SqlDataAdapter CMD = new SqlDataAdapter("SELECT TOP 1 * FROM DetallePaquete ORDER BY codDetallePaquete DESC", conexion);
+        DataSet ds = new DataSet();
+        CMD.Fill(ds, "DATOS");
+        DataTable TablaRol = ds.Tables[0];
+
+        string codigo;
+        codigo = TablaRol.Rows[0]["codDetallePaquete"].ToString();
+        return codigo;
+    }
+
+     [WebMethod]
+     public String obtenerCodigoCliente(string casilla)
+     {
+       
+         conexion.Open();
+         SqlCommand cmdU = new SqlCommand();
+         string consulta = "SELECT codCliente  FROM Cliente WHERE codigoCasilla='" + casilla + "'";
+         
+         SqlDataAdapter CMD = new SqlDataAdapter(consulta, conexion);
+     
+         DataSet ds = new DataSet();
+         CMD.Fill(ds, "DATOS");
+         DataTable TablaRol = ds.Tables[0];
+
+         string codigo;
+         codigo = TablaRol.Rows[0]["codCliente"].ToString();
+         return codigo;
+     }
+
     [WebMethod]
-    public Boolean registrarPaquete(string clasificacion, string descripcion,  string peso)
+    public Boolean registrarPaquete(string clasificacion, string descripcion,  string peso, string destino, string codCliente)
     {
 
         conexion.Open();
@@ -252,31 +288,61 @@ public class Service : System.Web.Services.WebService
         command.Parameters.Add("clasificacionPaquete", SqlDbType.VarChar, 50).Value = clasificacion;
         command.Parameters.Add("descripcionPaquete", SqlDbType.VarChar, 50).Value = descripcion;
         command.Parameters.Add("pesoPaquete", SqlDbType.Int).Value = peso;
-        
-
         command.ExecuteNonQuery();
+
+        command.CommandText = "INSERT INTO DetallePaquete VALUES(@destinoDetallePaquete, @codCliente)";
+        command.Parameters.Add("destinoDetallePaquete", SqlDbType.VarChar, 50).Value = destino;
+        command.Parameters.Add("codCliente", SqlDbType.Int).Value = codCliente;
+        command.ExecuteNonQuery();
+
         conexion.Close();
         return true;
     }
     
     [WebMethod]
 
-    public Boolean ingresarCodPaquete(string codigo)
+
+    public Boolean ingresarDetallePaquete(string destino, string codigo)
     {
-        conexion.Open();
+       
+        Boolean confirm = true;
 
-        SqlCommand command = new SqlCommand();
-        command.Connection = conexion;
-        command.CommandType = CommandType.Text;
-        command.CommandText = "INSERT INTO  VALUES(@clasificacionPaquete, @descripcionPaquete, @pesoPaquete)";
+        string mensaje = "";
+        try
+        {
+            conexion.Open();
+            string consulta = "Insert into DetallePaquete (bodegaDetallePaquete, destinoDetallePaquete, codCliente) Values('" + confirm + "','" + destino + "','" + codigo + "')";
+            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+            SqlCommand cmd;
+            cmd = new SqlCommand(consulta, conexion);
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            mensaje = "hubo un error" + ex;
+        }
+        return true;
+    }
 
-        command.Parameters.Add("clasificacionPaquete", SqlDbType.VarChar, 50).Value = clasificacion;
-        command.Parameters.Add("descripcionPaquete", SqlDbType.VarChar, 50).Value = descripcion;
-        command.Parameters.Add("pesoPaquete", SqlDbType.Int).Value = peso;
+    [WebMethod]
+    public Boolean ingresarCodigoDetallePaquete(string codigoDetalle)
+    {
+        
 
-
-        command.ExecuteNonQuery();
-        conexion.Close();
+        string mensaje = "";
+        try
+        {
+            conexion.Open();
+            string consulta = "Insert into Paquete (codDetallePaquete) Values('" + codigoDetalle + "')";
+            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+            SqlCommand cmd;
+            cmd = new SqlCommand(consulta, conexion);
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            mensaje = "hubo un error" + ex;
+        }
         return true;
     }
    

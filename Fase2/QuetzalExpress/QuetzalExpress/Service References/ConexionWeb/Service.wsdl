@@ -133,7 +133,7 @@
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="clasificacion" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="peso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="peso" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -151,6 +151,77 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="obtenerCodigoPaqueteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerCodigoDetallePaquete">
+        <s:complexType />
+      </s:element>
+      <s:element name="obtenerCodigoDetallePaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerCodigoDetallePaqueteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerCodigoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerCodigoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerCodigoClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registrarPaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clasificacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCliente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registrarPaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="registrarPaqueteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarDetallePaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarDetallePaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ingresarDetallePaqueteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarCodigoDetallePaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoDetalle" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarCodigoDetallePaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ingresarCodigoDetallePaqueteResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -216,6 +287,36 @@
   <wsdl:message name="obtenerCodigoPaqueteSoapOut">
     <wsdl:part name="parameters" element="tns:obtenerCodigoPaqueteResponse" />
   </wsdl:message>
+  <wsdl:message name="obtenerCodigoDetallePaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerCodigoDetallePaquete" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCodigoDetallePaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerCodigoDetallePaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCodigoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerCodigoCliente" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCodigoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerCodigoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="registrarPaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:registrarPaquete" />
+  </wsdl:message>
+  <wsdl:message name="registrarPaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:registrarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarDetallePaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarDetallePaquete" />
+  </wsdl:message>
+  <wsdl:message name="ingresarDetallePaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarDetallePaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarCodigoDetallePaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarCodigoDetallePaquete" />
+  </wsdl:message>
+  <wsdl:message name="ingresarCodigoDetallePaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarCodigoDetallePaqueteResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServiceSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -256,6 +357,26 @@
     <wsdl:operation name="obtenerCodigoPaquete">
       <wsdl:input message="tns:obtenerCodigoPaqueteSoapIn" />
       <wsdl:output message="tns:obtenerCodigoPaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoDetallePaquete">
+      <wsdl:input message="tns:obtenerCodigoDetallePaqueteSoapIn" />
+      <wsdl:output message="tns:obtenerCodigoDetallePaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoCliente">
+      <wsdl:input message="tns:obtenerCodigoClienteSoapIn" />
+      <wsdl:output message="tns:obtenerCodigoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registrarPaquete">
+      <wsdl:input message="tns:registrarPaqueteSoapIn" />
+      <wsdl:output message="tns:registrarPaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarDetallePaquete">
+      <wsdl:input message="tns:ingresarDetallePaqueteSoapIn" />
+      <wsdl:output message="tns:ingresarDetallePaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarCodigoDetallePaquete">
+      <wsdl:input message="tns:ingresarCodigoDetallePaqueteSoapIn" />
+      <wsdl:output message="tns:ingresarCodigoDetallePaqueteSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
@@ -350,6 +471,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoDetallePaquete">
+      <soap:operation soapAction="http://tempuri.org/obtenerCodigoDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoCliente">
+      <soap:operation soapAction="http://tempuri.org/obtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarPaquete">
+      <soap:operation soapAction="http://tempuri.org/registrarPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarDetallePaquete">
+      <soap:operation soapAction="http://tempuri.org/ingresarDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarCodigoDetallePaquete">
+      <soap:operation soapAction="http://tempuri.org/ingresarCodigoDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -436,6 +602,51 @@
     </wsdl:operation>
     <wsdl:operation name="obtenerCodigoPaquete">
       <soap12:operation soapAction="http://tempuri.org/obtenerCodigoPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoDetallePaquete">
+      <soap12:operation soapAction="http://tempuri.org/obtenerCodigoDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoCliente">
+      <soap12:operation soapAction="http://tempuri.org/obtenerCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarPaquete">
+      <soap12:operation soapAction="http://tempuri.org/registrarPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarDetallePaquete">
+      <soap12:operation soapAction="http://tempuri.org/ingresarDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarCodigoDetallePaquete">
+      <soap12:operation soapAction="http://tempuri.org/ingresarCodigoDetallePaquete" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

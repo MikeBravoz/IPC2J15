@@ -50,11 +50,31 @@ namespace QuetzalExpress.ConexionWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarPaquete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool insertarPaquete(string clasificacion, string descripcion, int peso);
+        bool insertarPaquete(string clasificacion, string descripcion, string peso);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCodigoPaquete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string obtenerCodigoPaquete();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCodigoDetallePaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string obtenerCodigoDetallePaquete();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCodigoCliente", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string obtenerCodigoCliente(string casilla);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/registrarPaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool registrarPaquete(string clasificacion, string descripcion, string peso, string destino, string codCliente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ingresarDetallePaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool ingresarDetallePaquete(string destino, string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ingresarCodigoDetallePaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool ingresarCodigoDetallePaquete(string codigoDetalle);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -116,12 +136,32 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.insertarCategoria(nombre, impuesto);
         }
         
-        public bool insertarPaquete(string clasificacion, string descripcion, int peso) {
+        public bool insertarPaquete(string clasificacion, string descripcion, string peso) {
             return base.Channel.insertarPaquete(clasificacion, descripcion, peso);
         }
         
         public string obtenerCodigoPaquete() {
             return base.Channel.obtenerCodigoPaquete();
+        }
+        
+        public string obtenerCodigoDetallePaquete() {
+            return base.Channel.obtenerCodigoDetallePaquete();
+        }
+        
+        public string obtenerCodigoCliente(string casilla) {
+            return base.Channel.obtenerCodigoCliente(casilla);
+        }
+        
+        public bool registrarPaquete(string clasificacion, string descripcion, string peso, string destino, string codCliente) {
+            return base.Channel.registrarPaquete(clasificacion, descripcion, peso, destino, codCliente);
+        }
+        
+        public bool ingresarDetallePaquete(string destino, string codigo) {
+            return base.Channel.ingresarDetallePaquete(destino, codigo);
+        }
+        
+        public bool ingresarCodigoDetallePaquete(string codigoDetalle) {
+            return base.Channel.ingresarCodigoDetallePaquete(codigoDetalle);
         }
     }
 }

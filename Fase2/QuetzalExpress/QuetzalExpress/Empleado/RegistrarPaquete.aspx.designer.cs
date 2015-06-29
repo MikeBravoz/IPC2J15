@@ -103,6 +103,15 @@ namespace QuetzalExpress.Empleado {
         protected global::System.Web.UI.WebControls.TextBox txtcasilla;
         
         /// <summary>
+        /// txtdestino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdestino;
+        
+        /// <summary>
         /// btnregistrar control.
         /// </summary>
         /// <remarks>

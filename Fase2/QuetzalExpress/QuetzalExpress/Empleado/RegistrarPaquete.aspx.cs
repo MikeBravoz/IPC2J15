@@ -25,22 +25,25 @@ namespace QuetzalExpress.Empleado
             string descripcion;
             string peso;
             string casilla;
+            string destino;
+
             string codPaquete;
+            string codCliente;
 
             clasificacion = txtclasificacion.Text;
             descripcion = txtdescripcion.Text;
             peso = txtpeso.Text;
             casilla = txtcasilla.Text;
+            destino = txtdestino.Text;
 
 
-
+            conexion.insertarPaquete(clasificacion, descripcion, peso);
             codPaquete = conexion.obtenerCodigoPaquete();
-            string mensaje = "El Codigo del paquete es "+codPaquete;
+            codCliente = conexion.obtenerCodigoCliente(casilla);
+            conexion.ingresarDetallePaquete(destino, codCliente);
+
+            string mensaje = "El Codigo del paquete es " + codPaquete + "El Codigo del Cliente es " + codCliente;
             this.Page.Response.Write("<script language='JavaScript'>window.alert('" + mensaje + "');</script>");
-
-
-
-
 
         }
 
