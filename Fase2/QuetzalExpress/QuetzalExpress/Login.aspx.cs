@@ -15,8 +15,11 @@ namespace QuetzalExpress
         {
             lblfecha.Text = System.DateTime.Now.ToString();
             lblusuario.Text = "Invitado";
-            lblusuario.Visible = true;  
-
+            lblusuario.Visible = true;
+            Session["SessionCliente"] = null;
+            Session["PassCliente"] = null;
+            Session["SessionEmpleado"] = null;
+            Session["PassEmpleado"] = null;
         }
 
         public string AnalisarUsuario(String Usuario)
@@ -50,11 +53,10 @@ namespace QuetzalExpress
 
             ConexionWeb.ServiceSoapClient conect = new ConexionWeb.ServiceSoapClient();
             User = conect.LoguinCliente(Usuario, Contrasena);
-           // User2 = conect.Loguin(Usuario, Contrasena);
-            
+            Pass = conect.LoguinClientePass(Usuario, Contrasena);   
 
             Session["SessionCliente"] = User;
-
+            Session["PassCliente"] = Pass;
             if (Session["SessionCliente"] == null)
             {
                 User = conect.Loguin(Usuario, Contrasena);

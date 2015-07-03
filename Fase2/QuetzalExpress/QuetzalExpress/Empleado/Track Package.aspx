@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrincipalEmpleado.aspx.cs" Inherits="QuetzalExpress.Empleado.PrincipalCliente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Track Package.aspx.cs" Inherits="QuetzalExpress.Empleado.Track_Package" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
 	<div id="page">
 		<div id="content">
 			<div class="post">
-				<h2 class="title"><a href="#">Bienvenido  </a>&nbsp;
+				<h2 class="title"><a href="#">Track Package  </a>&nbsp;
                     <asp:Label ID="lblusuario" runat="server" style="font-size: x-large" Text="Anonimo" Visible="False"></asp:Label>
                 </h2>
 				<div id="fecha">
@@ -50,22 +50,22 @@
                 </div>
 				<div style="clear: both;" id="usuario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
-                <div style="clear: both;" id="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="clear: both; text-align: center;" id="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnVerPaquetes" runat="server" OnClick="btnVerPaquetes_Click" Text="Ver Paquetes" Width="175px" />
+                    <div>
+                        <asp:GridView ID="dgvPaquete" runat="server">
+                        </asp:GridView>
+                    </div>
                     </div>
 			</div>
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
 		    <div>
-                <asp:Button ID="btnregistrar" runat="server" Text="Registrar Paquete" Width="184px" OnClick="btnregistrar_Click" />
                 <div>
-                    <asp:Button ID="btnagregar" runat="server" Text="Agregar a Lote" Width="185px" OnClick="btnagregar_Click" />
                     <div>
-                        <asp:Button ID="btntracking" runat="server" Text="Tracking" Width="186px" OnClick="btntracking_Click" />
                         <div>
-                            <asp:Button ID="btnAutorizarClientes" runat="server" OnClick="btnAutorizarClientes_Click" Text="Autorizar Clientes" Width="186px" />
                             <div>
-                                <asp:Button ID="btnConsultarEquipo" runat="server" OnClick="btnConsultarEquipo_Click" Text="Consultar Equipo" Width="187px" />
                             </div>
                         </div>
                     </div>
@@ -86,4 +86,3 @@
     </form>
 </body>
 </html>
-

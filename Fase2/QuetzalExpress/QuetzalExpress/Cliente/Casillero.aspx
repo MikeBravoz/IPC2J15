@@ -28,7 +28,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#">Contactanos</a></li>
-					<li><a href="#">Logout</a></li>
+					<li><a href="../Login.aspx">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -48,10 +48,11 @@
 				<div id="fecha">
                     <asp:Label ID="lblfecha" runat="server" Text="Fecha"></asp:Label>
                 </div>
-				<div style="clear: both;" id="comandos">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnverClientes" runat="server" OnClick="Button1_Click" Text="Ver Clientes" />
+				<div style="clear: both;" id="comandos">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnVerPaquetes" runat="server" OnClick="btnVerPaquetes_Click" Text="VER PAQUETES" Width="135px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnTrack" runat="server" OnClick="btnTrack_Click" Text="TRACK PACKAGE" />
                     </div>
-                <div style="clear: both;" id="datos">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="clear: both; width: 617px;" id="datos">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:GridView ID="dgvCliente" runat="server" Height="200px" Width="227px">
                     </asp:GridView>
                     </div>
@@ -59,11 +60,25 @@
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
+		    <div style="text-align: center">
+                <asp:Label ID="Label1" runat="server" style="text-align: center" Text="Consultar Paquete"></asp:Label>
+                <div>
+                </div>
+                <div style="text-align: left">
+                    Cod Paquete<asp:TextBox ID="txtCodPaquete" runat="server"></asp:TextBox>
+                    <div style="text-align: center">
+                        <asp:Button ID="btnConsutarPaquete" runat="server" OnClick="btnConsutarPaquete_Click" Text="CONSULTAR" />
+                        <div>
+                            <asp:TextBox ID="txtArea" runat="server" Height="82px" TextMode="MultiLine" Width="263px"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>
-	<div class="container"><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+	<div class="container"><img src="/images/img03.png" width="1000" height="40" alt="" /></div>
 	<!-- end #page --> 
 </div>
 <div id="footer-content"></div>

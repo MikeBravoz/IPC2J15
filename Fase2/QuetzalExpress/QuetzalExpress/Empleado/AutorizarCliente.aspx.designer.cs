@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuetzalExpress.Cliente {
+namespace QuetzalExpress.Empleado {
     
     
-    public partial class Casillero {
+    public partial class AutorizarCliente {
         
         /// <summary>
         /// form1 control.
@@ -40,31 +40,22 @@ namespace QuetzalExpress.Cliente {
         protected global::System.Web.UI.WebControls.Label lblfecha;
         
         /// <summary>
-        /// btnVerPaquetes control.
+        /// btnClientesPendientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerPaquetes;
+        protected global::System.Web.UI.WebControls.Button btnClientesPendientes;
         
         /// <summary>
-        /// btnTrack control.
+        /// dgvClientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTrack;
-        
-        /// <summary>
-        /// dgvCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvCliente;
+        protected global::System.Web.UI.WebControls.GridView dgvClientes;
         
         /// <summary>
         /// Label1 control.
@@ -76,30 +67,39 @@ namespace QuetzalExpress.Cliente {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtCodPaquete control.
+        /// txtCodigoCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodPaquete;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoCliente;
         
         /// <summary>
-        /// btnConsutarPaquete control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConsutarPaquete;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtArea control.
+        /// txtCasilla control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtArea;
+        protected global::System.Web.UI.WebControls.TextBox txtCasilla;
+        
+        /// <summary>
+        /// btnAutorizar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAutorizar;
     }
 }

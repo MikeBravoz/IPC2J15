@@ -33,7 +33,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="../Login.aspx" onabort()="session_destroy()">LOGOUT</a></li>
+					<li><a href="../Login.aspx">LOGOUT</a></li>
 				</ul>
 			</div>
 		</div>

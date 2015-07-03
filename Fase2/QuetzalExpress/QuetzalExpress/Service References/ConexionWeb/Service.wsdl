@@ -12,28 +12,39 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Guardar">
+      <s:element name="GuardarClienteNuevo">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="dpi" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="nit" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="telefono" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fecnac" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="numtar" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="tiptar" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fecex" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GuardarResponse">
+      <s:element name="GuardarClienteNuevoResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="GuardarResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarClienteNuevoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarTarjeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fex" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarTarjetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarTarjetaResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -83,6 +94,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LoguinClientePass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoguinClientePassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoguinClientePassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Loguin">
         <s:complexType>
           <s:sequence>
@@ -124,7 +150,7 @@
       <s:element name="insertarCategoriaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="insertarCategoriaResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="insertarCategoriaResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -134,6 +160,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="clasificacion" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="peso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -178,6 +205,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="obtenerCodigoCliente2">
+        <s:complexType />
+      </s:element>
+      <s:element name="obtenerCodigoCliente2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerCodigoCliente2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="registrarPaquete">
         <s:complexType>
           <s:sequence>
@@ -215,6 +252,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="codigoDetalle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoPaquete" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -222,6 +260,188 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="ingresarCodigoDetallePaqueteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cat" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ingresarCategoriaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarImpuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ingresarImpuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ingresarImpuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarDetallePaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codCliente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarDetallePaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cargarDetallePaqueteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verPaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verPaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verPaqueteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verPaquete2">
+        <s:complexType />
+      </s:element>
+      <s:element name="verPaquete2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verPaquete2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verClientesPendientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="verClientesPendientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verClientesPendientesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verTarjetas">
+        <s:complexType />
+      </s:element>
+      <s:element name="verTarjetasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verTarjetasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autorizarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autorizarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="autorizarClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarPaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoPac" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarPaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarPaqueteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verEmpleado">
+        <s:complexType />
+      </s:element>
+      <s:element name="verEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verEmpleadoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codEmpleado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarEmpleadoResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -233,11 +453,17 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
-  <wsdl:message name="GuardarSoapIn">
-    <wsdl:part name="parameters" element="tns:Guardar" />
+  <wsdl:message name="GuardarClienteNuevoSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarClienteNuevo" />
   </wsdl:message>
-  <wsdl:message name="GuardarSoapOut">
-    <wsdl:part name="parameters" element="tns:GuardarResponse" />
+  <wsdl:message name="GuardarClienteNuevoSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarClienteNuevoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarTarjetaSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="GuardarTarjetaSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarTarjetaResponse" />
   </wsdl:message>
   <wsdl:message name="CargarClientesSoapIn">
     <wsdl:part name="parameters" element="tns:CargarClientes" />
@@ -256,6 +482,12 @@
   </wsdl:message>
   <wsdl:message name="LoguinClienteSoapOut">
     <wsdl:part name="parameters" element="tns:LoguinClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoguinClientePassSoapIn">
+    <wsdl:part name="parameters" element="tns:LoguinClientePass" />
+  </wsdl:message>
+  <wsdl:message name="LoguinClientePassSoapOut">
+    <wsdl:part name="parameters" element="tns:LoguinClientePassResponse" />
   </wsdl:message>
   <wsdl:message name="LoguinSoapIn">
     <wsdl:part name="parameters" element="tns:Loguin" />
@@ -299,6 +531,12 @@
   <wsdl:message name="obtenerCodigoClienteSoapOut">
     <wsdl:part name="parameters" element="tns:obtenerCodigoClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="obtenerCodigoCliente2SoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerCodigoCliente2" />
+  </wsdl:message>
+  <wsdl:message name="obtenerCodigoCliente2SoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerCodigoCliente2Response" />
+  </wsdl:message>
   <wsdl:message name="registrarPaqueteSoapIn">
     <wsdl:part name="parameters" element="tns:registrarPaquete" />
   </wsdl:message>
@@ -317,14 +555,84 @@
   <wsdl:message name="ingresarCodigoDetallePaqueteSoapOut">
     <wsdl:part name="parameters" element="tns:ingresarCodigoDetallePaqueteResponse" />
   </wsdl:message>
+  <wsdl:message name="ingresarCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarCategoria" />
+  </wsdl:message>
+  <wsdl:message name="ingresarCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ingresarImpuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:ingresarImpuesto" />
+  </wsdl:message>
+  <wsdl:message name="ingresarImpuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:ingresarImpuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="cargarDetallePaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:cargarDetallePaquete" />
+  </wsdl:message>
+  <wsdl:message name="cargarDetallePaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:cargarDetallePaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="verPaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:verPaquete" />
+  </wsdl:message>
+  <wsdl:message name="verPaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:verPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="verPaquete2SoapIn">
+    <wsdl:part name="parameters" element="tns:verPaquete2" />
+  </wsdl:message>
+  <wsdl:message name="verPaquete2SoapOut">
+    <wsdl:part name="parameters" element="tns:verPaquete2Response" />
+  </wsdl:message>
+  <wsdl:message name="verClientesPendientesSoapIn">
+    <wsdl:part name="parameters" element="tns:verClientesPendientes" />
+  </wsdl:message>
+  <wsdl:message name="verClientesPendientesSoapOut">
+    <wsdl:part name="parameters" element="tns:verClientesPendientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="verTarjetasSoapIn">
+    <wsdl:part name="parameters" element="tns:verTarjetas" />
+  </wsdl:message>
+  <wsdl:message name="verTarjetasSoapOut">
+    <wsdl:part name="parameters" element="tns:verTarjetasResponse" />
+  </wsdl:message>
+  <wsdl:message name="autorizarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:autorizarCliente" />
+  </wsdl:message>
+  <wsdl:message name="autorizarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:autorizarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarPaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarPaquete" />
+  </wsdl:message>
+  <wsdl:message name="consultarPaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="verEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:verEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="verEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:verEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarEmpleadoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServiceSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Guardar">
-      <wsdl:input message="tns:GuardarSoapIn" />
-      <wsdl:output message="tns:GuardarSoapOut" />
+    <wsdl:operation name="GuardarClienteNuevo">
+      <wsdl:input message="tns:GuardarClienteNuevoSoapIn" />
+      <wsdl:output message="tns:GuardarClienteNuevoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarTarjeta">
+      <wsdl:input message="tns:GuardarTarjetaSoapIn" />
+      <wsdl:output message="tns:GuardarTarjetaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CargarClientes">
       <wsdl:input message="tns:CargarClientesSoapIn" />
@@ -337,6 +645,10 @@
     <wsdl:operation name="LoguinCliente">
       <wsdl:input message="tns:LoguinClienteSoapIn" />
       <wsdl:output message="tns:LoguinClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoguinClientePass">
+      <wsdl:input message="tns:LoguinClientePassSoapIn" />
+      <wsdl:output message="tns:LoguinClientePassSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Loguin">
       <wsdl:input message="tns:LoguinSoapIn" />
@@ -366,6 +678,10 @@
       <wsdl:input message="tns:obtenerCodigoClienteSoapIn" />
       <wsdl:output message="tns:obtenerCodigoClienteSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoCliente2">
+      <wsdl:input message="tns:obtenerCodigoCliente2SoapIn" />
+      <wsdl:output message="tns:obtenerCodigoCliente2SoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="registrarPaquete">
       <wsdl:input message="tns:registrarPaqueteSoapIn" />
       <wsdl:output message="tns:registrarPaqueteSoapOut" />
@@ -377,6 +693,50 @@
     <wsdl:operation name="ingresarCodigoDetallePaquete">
       <wsdl:input message="tns:ingresarCodigoDetallePaqueteSoapIn" />
       <wsdl:output message="tns:ingresarCodigoDetallePaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarCategoria">
+      <wsdl:input message="tns:ingresarCategoriaSoapIn" />
+      <wsdl:output message="tns:ingresarCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ingresarImpuesto">
+      <wsdl:input message="tns:ingresarImpuestoSoapIn" />
+      <wsdl:output message="tns:ingresarImpuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cargarDetallePaquete">
+      <wsdl:input message="tns:cargarDetallePaqueteSoapIn" />
+      <wsdl:output message="tns:cargarDetallePaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verPaquete">
+      <wsdl:input message="tns:verPaqueteSoapIn" />
+      <wsdl:output message="tns:verPaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verPaquete2">
+      <wsdl:input message="tns:verPaquete2SoapIn" />
+      <wsdl:output message="tns:verPaquete2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verClientesPendientes">
+      <wsdl:input message="tns:verClientesPendientesSoapIn" />
+      <wsdl:output message="tns:verClientesPendientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verTarjetas">
+      <wsdl:input message="tns:verTarjetasSoapIn" />
+      <wsdl:output message="tns:verTarjetasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autorizarCliente">
+      <wsdl:input message="tns:autorizarClienteSoapIn" />
+      <wsdl:output message="tns:autorizarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarPaquete">
+      <wsdl:input message="tns:consultarPaqueteSoapIn" />
+      <wsdl:output message="tns:consultarPaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verEmpleado">
+      <wsdl:input message="tns:verEmpleadoSoapIn" />
+      <wsdl:output message="tns:verEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpleado">
+      <wsdl:input message="tns:consultarEmpleadoSoapIn" />
+      <wsdl:output message="tns:consultarEmpleadoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
@@ -390,8 +750,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Guardar">
-      <soap:operation soapAction="http://tempuri.org/Guardar" style="document" />
+    <wsdl:operation name="GuardarClienteNuevo">
+      <soap:operation soapAction="http://tempuri.org/GuardarClienteNuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarTarjeta">
+      <soap:operation soapAction="http://tempuri.org/GuardarTarjeta" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -419,6 +788,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoguinCliente">
       <soap:operation soapAction="http://tempuri.org/LoguinCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoguinClientePass">
+      <soap:operation soapAction="http://tempuri.org/LoguinClientePass" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -489,6 +867,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoCliente2">
+      <soap:operation soapAction="http://tempuri.org/obtenerCodigoCliente2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="registrarPaquete">
       <soap:operation soapAction="http://tempuri.org/registrarPaquete" style="document" />
       <wsdl:input>
@@ -516,6 +903,105 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ingresarCategoria">
+      <soap:operation soapAction="http://tempuri.org/ingresarCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarImpuesto">
+      <soap:operation soapAction="http://tempuri.org/ingresarImpuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarDetallePaquete">
+      <soap:operation soapAction="http://tempuri.org/cargarDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verPaquete">
+      <soap:operation soapAction="http://tempuri.org/verPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verPaquete2">
+      <soap:operation soapAction="http://tempuri.org/verPaquete2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verClientesPendientes">
+      <soap:operation soapAction="http://tempuri.org/verClientesPendientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verTarjetas">
+      <soap:operation soapAction="http://tempuri.org/verTarjetas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autorizarCliente">
+      <soap:operation soapAction="http://tempuri.org/autorizarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPaquete">
+      <soap:operation soapAction="http://tempuri.org/consultarPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verEmpleado">
+      <soap:operation soapAction="http://tempuri.org/verEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpleado">
+      <soap:operation soapAction="http://tempuri.org/consultarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -528,8 +1014,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Guardar">
-      <soap12:operation soapAction="http://tempuri.org/Guardar" style="document" />
+    <wsdl:operation name="GuardarClienteNuevo">
+      <soap12:operation soapAction="http://tempuri.org/GuardarClienteNuevo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarTarjeta">
+      <soap12:operation soapAction="http://tempuri.org/GuardarTarjeta" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -557,6 +1052,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoguinCliente">
       <soap12:operation soapAction="http://tempuri.org/LoguinCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoguinClientePass">
+      <soap12:operation soapAction="http://tempuri.org/LoguinClientePass" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -627,6 +1131,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="obtenerCodigoCliente2">
+      <soap12:operation soapAction="http://tempuri.org/obtenerCodigoCliente2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="registrarPaquete">
       <soap12:operation soapAction="http://tempuri.org/registrarPaquete" style="document" />
       <wsdl:input>
@@ -647,6 +1160,105 @@
     </wsdl:operation>
     <wsdl:operation name="ingresarCodigoDetallePaquete">
       <soap12:operation soapAction="http://tempuri.org/ingresarCodigoDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarCategoria">
+      <soap12:operation soapAction="http://tempuri.org/ingresarCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ingresarImpuesto">
+      <soap12:operation soapAction="http://tempuri.org/ingresarImpuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarDetallePaquete">
+      <soap12:operation soapAction="http://tempuri.org/cargarDetallePaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verPaquete">
+      <soap12:operation soapAction="http://tempuri.org/verPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verPaquete2">
+      <soap12:operation soapAction="http://tempuri.org/verPaquete2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verClientesPendientes">
+      <soap12:operation soapAction="http://tempuri.org/verClientesPendientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verTarjetas">
+      <soap12:operation soapAction="http://tempuri.org/verTarjetas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autorizarCliente">
+      <soap12:operation soapAction="http://tempuri.org/autorizarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPaquete">
+      <soap12:operation soapAction="http://tempuri.org/consultarPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/verEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpleado">
+      <soap12:operation soapAction="http://tempuri.org/consultarEmpleado" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

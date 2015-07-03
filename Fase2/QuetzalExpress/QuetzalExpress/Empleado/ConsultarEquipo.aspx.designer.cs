@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuetzalExpress.Cliente {
+namespace QuetzalExpress.Empleado {
     
     
-    public partial class Casillero {
+    public partial class ConsultarEquipo {
         
         /// <summary>
         /// form1 control.
@@ -40,31 +40,40 @@ namespace QuetzalExpress.Cliente {
         protected global::System.Web.UI.WebControls.Label lblfecha;
         
         /// <summary>
-        /// btnVerPaquetes control.
+        /// btnConsultarEquipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerPaquetes;
+        protected global::System.Web.UI.WebControls.Button btnConsultarEquipo;
         
         /// <summary>
-        /// btnTrack control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTrack;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// dgvCliente control.
+        /// txtCodigoDepto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoDepto;
+        
+        /// <summary>
+        /// dgvClientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvClientes;
         
         /// <summary>
         /// Label1 control.
@@ -76,22 +85,22 @@ namespace QuetzalExpress.Cliente {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtCodPaquete control.
+        /// txtCodigoEmpleado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodPaquete;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoEmpleado;
         
         /// <summary>
-        /// btnConsutarPaquete control.
+        /// btnVerEmpleado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConsutarPaquete;
+        protected global::System.Web.UI.WebControls.Button btnVerEmpleado;
         
         /// <summary>
         /// txtArea control.

@@ -60,6 +60,8 @@
     <Content Include="App_Themes\Theme1\estilos.css" />
     <Content Include="css\Casillero.css" />
     <Content Include="css\PrincipalCliente.css" />
+    <Content Include="Empleado\AutorizarCliente.aspx" />
+    <Content Include="Empleado\ConsultarEquipo.aspx" />
     <Content Include="Empleado\Lote.aspx" />
     <Content Include="Empleado\PrincipalEmpleado.aspx" />
     <Content Include="Cliente\Casillero.aspx" />
@@ -71,6 +73,7 @@
     <Content Include="css\templatemo_style.css" />
     <Content Include="Cliente\FormularioNuevos.aspx" />
     <Content Include="Empleado\RegistrarPaquete.aspx" />
+    <Content Include="Empleado\Track Package.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="images\img01.jpg" />
     <Content Include="images\img02.jpg" />
@@ -136,6 +139,20 @@
     <Compile Include="Administrar\Clasificacion.aspx.designer.cs">
       <DependentUpon>Clasificacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Empleado\AutorizarCliente.aspx.cs">
+      <DependentUpon>AutorizarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\AutorizarCliente.aspx.designer.cs">
+      <DependentUpon>AutorizarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\ConsultarEquipo.aspx.cs">
+      <DependentUpon>ConsultarEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\ConsultarEquipo.aspx.designer.cs">
+      <DependentUpon>ConsultarEquipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empleado\Lote.aspx.cs">
       <DependentUpon>Lote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +187,13 @@
     </Compile>
     <Compile Include="Empleado\RegistrarPaquete.aspx.designer.cs">
       <DependentUpon>RegistrarPaquete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Track Package.aspx.cs">
+      <DependentUpon>Track Package.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Track Package.aspx.designer.cs">
+      <DependentUpon>Track Package.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetSetNuevos.cs" />
     <Compile Include="Login.aspx.cs">

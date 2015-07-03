@@ -28,7 +28,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="SinLogin/Contacto.aspx">Conctactanos</a></li>
-					<li><a href="Login.aspx">Logout</a></li>
+					<li><a href="../Login.aspx">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 	<div id="page">
 		<div id="content">
 			<div class="post">
-				<h2 class="title"><a href="#">Bienvenido  </a>&nbsp;
+				<h2 class="title"><a href="#">Clasificacino y Categorias  </a>&nbsp;
                     <asp:Label ID="lblusuario" runat="server" style="font-size: x-large" Text="Anonimo" Visible="False"></asp:Label>
                 </h2>
 				<div id="fecha">

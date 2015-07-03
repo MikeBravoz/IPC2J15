@@ -42,7 +42,7 @@
 	<div id="page">
 		<div id="content">
 			<div class="post">
-				<h2 class="title"><a href="#">Bienvenido  </a>&nbsp;
+				<h2 class="title"><a href="#">Administracion  </a>&nbsp;
                     <asp:Label ID="lblusuario" runat="server" style="font-size: x-large" Text="Anonimo" Visible="False"></asp:Label>
                 </h2>
 				<div id="fecha">
@@ -60,8 +60,28 @@
                     <asp:Button ID="btncargar" runat="server" OnClick="btncargar_Click" Text="CARGAR" />
                 </div>
                 <div>
-                    <asp:GridView ID="dgvDatos" runat="server">
+                    <asp:GridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" DataKeyNames="codAsignacionSucursal" DataSourceID="SqlDataSource1" EnableModelValidation="True">
+                        <Columns>
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                            <asp:BoundField DataField="codAsignacionSucursal" HeaderText="codAsignacionSucursal" InsertVisible="False" ReadOnly="True" SortExpression="codAsignacionSucursal" />
+                            <asp:BoundField DataField="codDepartamento" HeaderText="codDepartamento" SortExpression="codDepartamento" />
+                            <asp:BoundField DataField="codSucursal" HeaderText="codSucursal" SortExpression="codSucursal" />
+                        </Columns>
                     </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuetzalExpressConnectionString3 %>" DeleteCommand="DELETE FROM [AsignacionSucursal] WHERE [codAsignacionSucursal] = @codAsignacionSucursal" InsertCommand="INSERT INTO [AsignacionSucursal] ([codDepartamento], [codSucursal]) VALUES (@codDepartamento, @codSucursal)" SelectCommand="SELECT * FROM [AsignacionSucursal]" UpdateCommand="UPDATE [AsignacionSucursal] SET [codDepartamento] = @codDepartamento, [codSucursal] = @codSucursal WHERE [codAsignacionSucursal] = @codAsignacionSucursal">
+                        <DeleteParameters>
+                            <asp:Parameter Name="codAsignacionSucursal" Type="Int32" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="codDepartamento" Type="Int32" />
+                            <asp:Parameter Name="codSucursal" Type="Int32" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="codDepartamento" Type="Int32" />
+                            <asp:Parameter Name="codSucursal" Type="Int32" />
+                            <asp:Parameter Name="codAsignacionSucursal" Type="Int32" />
+                        </UpdateParameters>
+                    </asp:SqlDataSource>
                     <asp:TextBox ID="txtpantalla" runat="server" Height="151px" TextMode="MultiLine" Width="283px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
                 </div>
@@ -81,7 +101,7 @@
 </div>
 <div id="footer-content"></div>
 <div id="footer">
-	<p>&copy; Untitled. All rights reserved. Design by TED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
+	<p>&copy;<a> Untitled. All rights reserved. Design by TED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
 </div>
 <!-- end #footer -->
     </form>

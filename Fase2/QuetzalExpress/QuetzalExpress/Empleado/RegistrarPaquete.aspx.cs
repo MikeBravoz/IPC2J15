@@ -12,8 +12,17 @@ namespace QuetzalExpress.Empleado
         protected void Page_Load(object sender, EventArgs e)
         {
             lblfecha.Text = System.DateTime.Now.ToString();
-            lblusuario.Text = Session["SessionEmpleado"].ToString();
-            lblusuario.Visible = true; 
+            
+            lblusuario.Visible = true;
+            if (Session["SessionEmpleado"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else 
+            {
+                lblusuario.Text = Session["SessionEmpleado"].ToString();
+            }
+
         }
 
         ConexionWeb.ServiceSoapClient conexion = new ConexionWeb.ServiceSoapClient();
@@ -27,6 +36,7 @@ namespace QuetzalExpress.Empleado
             string casilla;
             string destino;
 
+            string codDetallePac;
             string codPaquete;
             string codCliente;
 
@@ -37,13 +47,24 @@ namespace QuetzalExpress.Empleado
             destino = txtdestino.Text;
 
 
-            conexion.insertarPaquete(clasificacion, descripcion, peso);
+            conexion.insertarPaquete(clasificacion, descripcion, peso, casilla);
             codPaquete = conexion.obtenerCodigoPaquete();
             codCliente = conexion.obtenerCodigoCliente(casilla);
             conexion.ingresarDetallePaquete(destino, codCliente);
 
-            string mensaje = "El Codigo del paquete es " + codPaquete + "El Codigo del Cliente es " + codCliente;
+            codDetallePac = conexion.obtenerCodigoDetallePaquete();
+            conexion.ingresarCodigoDetallePaquete(codDetallePac, codPaquete);
+
+
+            string mensaje = "El Codigo del paquete es  " + codPaquete + "  El Codigo del Cliente es " + codCliente;
             this.Page.Response.Write("<script language='JavaScript'>window.alert('" + mensaje + "');</script>");
+
+            txtclasificacion.Text = "";
+            txtdescripcion.Text = "";
+            txtpeso.Text = "";
+            txtdestino.Text = "";
+            txtcasilla.Text = "";
+
 
         }
 

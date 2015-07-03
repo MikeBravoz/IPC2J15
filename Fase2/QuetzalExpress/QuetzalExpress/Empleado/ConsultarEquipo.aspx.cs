@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace QuetzalExpress.Empleado
 {
-    public partial class Lote : System.Web.UI.Page
+    public partial class ConsultarEquipo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +22,20 @@ namespace QuetzalExpress.Empleado
             {
                 lblusuario.Text = Session["SessionEmpleado"].ToString();
             }
+        }
+        ConexionWeb.ServiceSoapClient conexion = new ConexionWeb.ServiceSoapClient();
+
+        protected void btnClientesPendientes_Click(object sender, EventArgs e)
+        {
+            dgvClientes.DataSource = conexion.verEmpleado();
+            dgvClientes.DataBind();
+        }
+
+        protected void btnAutorizar_Click(object sender, EventArgs e)
+        {
+            string CodPaq = txtCodigoEmpleado.Text;
+
+            txtArea.Text = conexion.consultarEmpleado(CodPaq);
         }
     }
 }

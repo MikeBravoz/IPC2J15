@@ -16,10 +16,20 @@ namespace QuetzalExpress
         protected void Page_Load(object sender, EventArgs e)
         {
             lblfecha.Text = System.DateTime.Now.ToString();
-            lblusuario.Text = "Invitado";
-            lblusuario.Visible = true; 
+
+            lblusuario.Visible = true;
+            if (Session["SessionEmpleado"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                lblusuario.Text = Session["SessionEmpleado"].ToString();
+            }
+           
         }
 
+        ConexionWeb.ServiceSoapClient conexion = new ConexionWeb.ServiceSoapClient();
 
         
         //public List<string[]> parseCSV(string path)
@@ -39,11 +49,64 @@ namespace QuetzalExpress
         //    }
         //    return parsedData;
         //}
+        public String leerArchivo(string path)
+        {
+            string cadena="";
+            //StreamReader leer = new StreamReader(path + FileUpload1.FileName);
+            cadena = System.IO.File.ReadAllText(path + FileUpload1.FileName);
 
+            return cadena;
+        }
 
         protected void btncargar_Click(object sender, EventArgs e)
         {
+            String savePath = @"C:\Users\Johnny Bravo\Documents\GitHub\IPC2J15\CSV\";
+            if (FileUpload1.HasFile)
+            {
+                String fileName = FileUpload1.FileName;
+                savePath += fileName;
+                FileUpload1.SaveAs(savePath);
+                parseCSV2(savePath);
+                dgvDatos.DataBind();
+                Response.Redirect("~/Administrar/Clasificacion.aspx");
 
+            }
+        }
+        public List<string[]> parseCSV2(string path)
+        {
+            List<string[]> parsedData = new List<string[]>();
+            Boolean mensaje = false;
+            using (StreamReader readFile = new StreamReader(path))
+            {
+                string line;
+                string[] row;
+
+                while ((line = readFile.ReadLine()) != null)
+                {
+                    row = line.Split(',');
+                    parsedData.Add(row);
+                    ConexionWeb.ServiceSoapClient service = new ConexionWeb.ServiceSoapClient();
+                    mensaje= service.insertarCategoria(row[0], Convert.ToInt32(row[1]));
+                    Response.Redirect("~/Administrar/Clasificacion.aspx");
+
+                }
+
+                if(mensaje==true)
+                {
+                   
+
+                    string cadena = "Se han cargado los archivos con exito";
+                    this.Page.Response.Write("<script language='JavaScript'>window.alert('" + cadena + "');</script>");
+                    Response.Redirect("~/Administrar/Clasificacion.aspx");
+                }
+                else
+                {
+                    string cadena ="ERROR al cargar archivos";
+                    this.Page.Response.Write("<script language='JavaScript'>window.alert('" + cadena + "');</script>");
+                }
+
+            }
+            return parsedData;
         }
 
         protected void btnClasificacion_Click(object sender, EventArgs e)

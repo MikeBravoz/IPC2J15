@@ -28,7 +28,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#">Contactanos</a></li>
-					<li><a href="#">LOgout</a></li>
+					<li><a href="../Login.aspx">LOgout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -58,9 +58,6 @@
                     <asp:Label ID="Label3" runat="server" Text="Apellido"></asp:Label>
                     <asp:TextBox ID="txtapellido" runat="server" style="margin-left: 86px" Width="260px"></asp:TextBox>
                     <br />
-                    <asp:Label ID="Label4" runat="server" Text="No. dpi"></asp:Label>
-                    <asp:TextBox ID="txtdpi" runat="server" style="margin-left: 95px" Width="255px"></asp:TextBox>
-                    <br />
                     <asp:Label ID="Label5" runat="server" Text="Nit"></asp:Label>
                     <asp:TextBox ID="txtnit" runat="server" style="margin-left: 120px" Width="169px"></asp:TextBox>
                     <br />
@@ -70,9 +67,6 @@
                     <asp:Label ID="Label7" runat="server" Text="Direccion"></asp:Label>
                     <asp:TextBox ID="txtdireccion" runat="server" style="margin-left: 77px" Width="258px"></asp:TextBox>
                     <br />
-                    email<asp:TextBox ID="txtemail" runat="server" style="margin-left: 103px" Width="258px"></asp:TextBox>
-                    <br />
-                    Fecha Nacimiento<asp:TextBox ID="txtfecnac" runat="server" style="margin-left: 23px"></asp:TextBox>
                     </div>
 			    <div>
                 </div>

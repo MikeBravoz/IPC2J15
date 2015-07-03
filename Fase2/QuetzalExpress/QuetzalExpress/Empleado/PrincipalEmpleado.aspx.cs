@@ -15,16 +15,23 @@ namespace QuetzalExpress.Empleado
         protected void Page_Load(object sender, EventArgs e)
         {
             lblfecha.Text = System.DateTime.Now.ToString();
-            lblusuario.Text = Session["SessionEmpleado"].ToString();
+
             lblusuario.Visible = true;
-           
-            
+            if (Session["SessionEmpleado"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                lblusuario.Text = Session["SessionEmpleado"].ToString();
+            }
+
         }
 
         public string AnalisarUsuario(String password)
         {
 
-            
+
 
             SqlConnection conectar = new SqlConnection("Data Source=PERSONAL;Initial Catalog=QuetzalExpress;Integrated Security=True");
             SqlCommand cmdU = new SqlCommand();
@@ -39,12 +46,11 @@ namespace QuetzalExpress.Empleado
 
 
         protected void btnregistrar_Click(object sender, EventArgs e)
-           
         {
             String acceso = "Usa";
             String pass = Session["PassEmpleado"].ToString();
 
-            if( acceso == AnalisarUsuario(pass))
+            if (acceso == AnalisarUsuario(pass))
             {
                 Response.Redirect("~/Empleado/RegistrarPaquete.aspx");
             }
@@ -75,6 +81,45 @@ namespace QuetzalExpress.Empleado
                 //Response.Write("Acceso Denegado.. Comuniquese con administracion");
                 //   Response.Redirect("~/Empleado/PrincipalEmpleado.aspx");
             }
+        }
+
+        protected void btnAutorizarClientes_Click(object sender, EventArgs e)
+        {
+            String acceso = "Guatemala";
+            String pass = Session["PassEmpleado"].ToString();
+
+            if (acceso == AnalisarUsuario(pass))
+            {
+                Response.Redirect("~/Empleado/AutorizarCliente.aspx");
+            }
+            else
+            {
+                string error = "Acceso Denegado... Comuniquese con administracion";
+
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('" + error + "');</script>");
+            }
+        }
+
+        protected void btnConsultarEquipo_Click(object sender, EventArgs e)
+        {
+            String acceso = "Guatemala";
+            String pass = Session["PassEmpleado"].ToString();
+
+            if (acceso == AnalisarUsuario(pass))
+            {
+                Response.Redirect("~/Empleado/ConsultarEquipo.aspx");
+            }
+            else
+            {
+                string error = "Acceso Denegado... Comuniquese con administracion";
+
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('" + error + "');</script>");
+            }
+        }
+
+        protected void btntracking_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Empleado/Track Package.aspx");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrincipalEmpleado.aspx.cs" Inherits="QuetzalExpress.Empleado.PrincipalCliente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsultarEquipo.aspx.cs" Inherits="QuetzalExpress.Empleado.ConsultarEquipo" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
 	<div id="page">
 		<div id="content">
 			<div class="post">
-				<h2 class="title"><a href="#">Bienvenido  </a>&nbsp;
+				<h2 class="title"><a href="#">Consultar Equipo  </a>&nbsp;
                     <asp:Label ID="lblusuario" runat="server" style="font-size: x-large" Text="Anonimo" Visible="False"></asp:Label>
                 </h2>
 				<div id="fecha">
@@ -51,21 +51,33 @@
 				<div style="clear: both;" id="usuario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 <div style="clear: both;" id="password">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnConsultarEquipo" runat="server" OnClick="btnClientesPendientes_Click" Text="Consultar Equipo" />
+                    &nbsp;
+                    <asp:Label ID="Label3" runat="server" Text="Codigo Depto."></asp:Label>
+                    <asp:TextBox ID="txtCodigoDepto" runat="server"></asp:TextBox>
                     </div>
+			    <div>
+                    <asp:GridView ID="dgvClientes" runat="server">
+                    </asp:GridView>
+                </div>
 			</div>
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
 		    <div>
-                <asp:Button ID="btnregistrar" runat="server" Text="Registrar Paquete" Width="184px" OnClick="btnregistrar_Click" />
                 <div>
-                    <asp:Button ID="btnagregar" runat="server" Text="Agregar a Lote" Width="185px" OnClick="btnagregar_Click" />
                     <div>
-                        <asp:Button ID="btntracking" runat="server" Text="Tracking" Width="186px" OnClick="btntracking_Click" />
-                        <div>
-                            <asp:Button ID="btnAutorizarClientes" runat="server" OnClick="btnAutorizarClientes_Click" Text="Autorizar Clientes" Width="186px" />
+                        <div style="text-align: center">
+                            <asp:Label ID="Label1" runat="server" Text="Cod. Empleado"></asp:Label>
+                            &nbsp;&nbsp;
+                            <asp:TextBox ID="txtCodigoEmpleado" runat="server"></asp:TextBox>
                             <div>
-                                <asp:Button ID="btnConsultarEquipo" runat="server" OnClick="btnConsultarEquipo_Click" Text="Consultar Equipo" Width="187px" />
+                                <div style="text-align: center">
+                                    <asp:Button ID="btnVerEmpleado" runat="server" OnClick="btnAutorizar_Click" Text="VER EMPLEADO" Width="164px" />
+                                    <div>
+                                        <asp:TextBox ID="txtArea" runat="server" Height="65px" TextMode="MultiLine" Width="269px"></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -86,4 +98,3 @@
     </form>
 </body>
 </html>
-

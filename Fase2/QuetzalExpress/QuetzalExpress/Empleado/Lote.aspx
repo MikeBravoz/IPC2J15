@@ -28,7 +28,7 @@
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
 					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="../Login.aspx">LOGOUT</a></li>
 				</ul>
 			</div>
 		</div>

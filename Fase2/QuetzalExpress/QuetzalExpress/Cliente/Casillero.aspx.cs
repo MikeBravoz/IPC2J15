@@ -11,14 +11,23 @@ namespace QuetzalExpress.Cliente
 {
     public partial class Casillero : System.Web.UI.Page
     {
-        ConexionWeb.ServiceSoapClient con = new ConexionWeb.ServiceSoapClient();
+        ConexionWeb.ServiceSoapClient conexion = new ConexionWeb.ServiceSoapClient();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             lblfecha.Text = System.DateTime.Now.ToString();
-            lblusuario.Text = "Invitado";
+
             lblusuario.Visible = true;
-            lblusuario.Text = Session["SessionCliente"].ToString();
+            if (Session["SessionCliente"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                lblusuario.Text = Session["SessionCliente"].ToString();
+            }
+
+           
         }
 
 
@@ -31,7 +40,7 @@ namespace QuetzalExpress.Cliente
 
            // DataTable tabla;
             DataSet datos;
-            datos = con.CargarClientes();
+            datos = conexion.CargarClientes();
 
             dgvCliente.DataSource = datos;
            // cargarClientes(dgvCliente);
@@ -41,6 +50,42 @@ namespace QuetzalExpress.Cliente
             
 
         }
+        public string CodigoCliente()
+        {
+            string codigo=conexion.obtenerCodigoCliente(Session["PassCliente"].ToString());
+
+            return codigo;
+        }
+    
+
+     
+
+        protected void btnTrack_Click(object sender, EventArgs e)
+        {
+            string codCasilla = CodigoCliente();
+
+            dgvCliente.DataSource = conexion.cargarDetallePaquete(codCasilla);
+            dgvCliente.DataBind();
+        }
+
+        protected void btnVerPaquetes_Click(object sender, EventArgs e)
+        {
+            string codCasilla = Session["PassCliente"].ToString();
+            dgvCliente.DataSource = conexion.verPaquete(codCasilla);
+            dgvCliente.DataBind();
+        }
+
+   
+
+        protected void btnConsutarPaquete_Click(object sender, EventArgs e)
+        {
+            string CodPaq = txtCodPaquete.Text;
+            string casillero= Session["PassCliente"].ToString();
+            txtArea.Text = conexion.consultarPaquete(casillero,CodPaq);
+            
+        }
+
+     
 
      
     }

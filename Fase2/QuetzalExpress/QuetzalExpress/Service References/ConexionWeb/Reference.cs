@@ -20,9 +20,13 @@ namespace QuetzalExpress.ConexionWeb {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string HelloWorld();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Guardar", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GuardarClienteNuevo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool Guardar(string nombre, string apellido, int dpi, int nit, int telefono, string direccion, string email, string fecnac, int numtar, string tiptar, string fecex, string banco);
+        bool GuardarClienteNuevo(string nombre, string apellido, int nit, int telefono, string direccion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GuardarTarjeta", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool GuardarTarjeta(string numero, string banco, string tipo, string codCliente, string fex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CargarClientes", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -36,6 +40,10 @@ namespace QuetzalExpress.ConexionWeb {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoguinCliente(string Usuario, string Contrasena);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoguinClientePass", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoguinClientePass(string usu, string pass);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Loguin", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string Loguin(string Usuario, string Contrasena);
@@ -46,11 +54,11 @@ namespace QuetzalExpress.ConexionWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarCategoria", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string insertarCategoria(string nombre, int impuesto);
+        bool insertarCategoria(string nombre, int impuesto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarPaquete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool insertarPaquete(string clasificacion, string descripcion, string peso);
+        bool insertarPaquete(string clasificacion, string descripcion, string peso, string casilla);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCodigoPaquete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -64,6 +72,10 @@ namespace QuetzalExpress.ConexionWeb {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string obtenerCodigoCliente(string casilla);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCodigoCliente2", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string obtenerCodigoCliente2();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/registrarPaquete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool registrarPaquete(string clasificacion, string descripcion, string peso, string destino, string codCliente);
@@ -74,7 +86,51 @@ namespace QuetzalExpress.ConexionWeb {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ingresarCodigoDetallePaquete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool ingresarCodigoDetallePaquete(string codigoDetalle);
+        bool ingresarCodigoDetallePaquete(string codigoDetalle, string codigoPaquete);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ingresarCategoria", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool ingresarCategoria(string cat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ingresarImpuesto", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool ingresarImpuesto(string imp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/cargarDetallePaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet cargarDetallePaquete(string codCliente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/verPaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet verPaquete(string casilla);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/verPaquete2", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet verPaquete2();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/verClientesPendientes", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet verClientesPendientes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/verTarjetas", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet verTarjetas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/autorizarCliente", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool autorizarCliente(string casilla, int codigoCliente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/consultarPaquete", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string consultarPaquete(string casilla, string codigoPac);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/verEmpleado", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet verEmpleado();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/consultarEmpleado", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string consultarEmpleado(string codEmpleado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -108,8 +164,12 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.HelloWorld();
         }
         
-        public bool Guardar(string nombre, string apellido, int dpi, int nit, int telefono, string direccion, string email, string fecnac, int numtar, string tiptar, string fecex, string banco) {
-            return base.Channel.Guardar(nombre, apellido, dpi, nit, telefono, direccion, email, fecnac, numtar, tiptar, fecex, banco);
+        public bool GuardarClienteNuevo(string nombre, string apellido, int nit, int telefono, string direccion) {
+            return base.Channel.GuardarClienteNuevo(nombre, apellido, nit, telefono, direccion);
+        }
+        
+        public bool GuardarTarjeta(string numero, string banco, string tipo, string codCliente, string fex) {
+            return base.Channel.GuardarTarjeta(numero, banco, tipo, codCliente, fex);
         }
         
         public System.Data.DataSet CargarClientes() {
@@ -124,6 +184,10 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.LoguinCliente(Usuario, Contrasena);
         }
         
+        public string LoguinClientePass(string usu, string pass) {
+            return base.Channel.LoguinClientePass(usu, pass);
+        }
+        
         public string Loguin(string Usuario, string Contrasena) {
             return base.Channel.Loguin(Usuario, Contrasena);
         }
@@ -132,12 +196,12 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.LoguinPass(Usuario, Contrasena);
         }
         
-        public string insertarCategoria(string nombre, int impuesto) {
+        public bool insertarCategoria(string nombre, int impuesto) {
             return base.Channel.insertarCategoria(nombre, impuesto);
         }
         
-        public bool insertarPaquete(string clasificacion, string descripcion, string peso) {
-            return base.Channel.insertarPaquete(clasificacion, descripcion, peso);
+        public bool insertarPaquete(string clasificacion, string descripcion, string peso, string casilla) {
+            return base.Channel.insertarPaquete(clasificacion, descripcion, peso, casilla);
         }
         
         public string obtenerCodigoPaquete() {
@@ -152,6 +216,10 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.obtenerCodigoCliente(casilla);
         }
         
+        public string obtenerCodigoCliente2() {
+            return base.Channel.obtenerCodigoCliente2();
+        }
+        
         public bool registrarPaquete(string clasificacion, string descripcion, string peso, string destino, string codCliente) {
             return base.Channel.registrarPaquete(clasificacion, descripcion, peso, destino, codCliente);
         }
@@ -160,8 +228,52 @@ namespace QuetzalExpress.ConexionWeb {
             return base.Channel.ingresarDetallePaquete(destino, codigo);
         }
         
-        public bool ingresarCodigoDetallePaquete(string codigoDetalle) {
-            return base.Channel.ingresarCodigoDetallePaquete(codigoDetalle);
+        public bool ingresarCodigoDetallePaquete(string codigoDetalle, string codigoPaquete) {
+            return base.Channel.ingresarCodigoDetallePaquete(codigoDetalle, codigoPaquete);
+        }
+        
+        public bool ingresarCategoria(string cat) {
+            return base.Channel.ingresarCategoria(cat);
+        }
+        
+        public bool ingresarImpuesto(string imp) {
+            return base.Channel.ingresarImpuesto(imp);
+        }
+        
+        public System.Data.DataSet cargarDetallePaquete(string codCliente) {
+            return base.Channel.cargarDetallePaquete(codCliente);
+        }
+        
+        public System.Data.DataSet verPaquete(string casilla) {
+            return base.Channel.verPaquete(casilla);
+        }
+        
+        public System.Data.DataSet verPaquete2() {
+            return base.Channel.verPaquete2();
+        }
+        
+        public System.Data.DataSet verClientesPendientes() {
+            return base.Channel.verClientesPendientes();
+        }
+        
+        public System.Data.DataSet verTarjetas() {
+            return base.Channel.verTarjetas();
+        }
+        
+        public bool autorizarCliente(string casilla, int codigoCliente) {
+            return base.Channel.autorizarCliente(casilla, codigoCliente);
+        }
+        
+        public string consultarPaquete(string casilla, string codigoPac) {
+            return base.Channel.consultarPaquete(casilla, codigoPac);
+        }
+        
+        public System.Data.DataSet verEmpleado() {
+            return base.Channel.verEmpleado();
+        }
+        
+        public string consultarEmpleado(string codEmpleado) {
+            return base.Channel.consultarEmpleado(codEmpleado);
         }
     }
 }

@@ -11,7 +11,17 @@ namespace QuetzalExpress.Administrar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblfecha.Text = System.DateTime.Now.ToString();
 
+            lblusuario.Visible = true;
+            if (Session["SessionEmpleado"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                lblusuario.Text = Session["SessionEmpleado"].ToString();
+            }
         }
 
         protected void btncargar_Click(object sender, EventArgs e)
